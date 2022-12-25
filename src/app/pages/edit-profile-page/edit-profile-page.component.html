@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <div class="container">
+    <img class="container_img"
+         src="https://www.meme-arsenal.com/memes/8e750b5ffb6a6d58cdb01341726ab3af.jpg">
+  </div>
+  <div class="container_id">
+    <p style=" color: #2E62D9;">ID</p>
+    <p>XXXXXXXXX</p>
+  </div>
+  <form
+    tuiTextfieldSize="m"
+    style= "width: 270px;"
+    [formGroup]="profileForm"
+  >
+    <tui-input
+      [tuiTextfieldLabelOutside]="true"
+      formControlName="firstname"
+      style="margin-bottom: 15px;"
+    >
+      Имя
+      <input
+        tuiTextfield
+        type="text"
+      />
+    </tui-input>
+
+    <tui-input
+      [tuiTextfieldLabelOutside]="true"
+      formControlName="secondname"
+      style="margin-bottom: 15px;"
+    >
+      Фамилия
+      <input
+        tuiTextfield
+        type="text"
+      />
+    </tui-input>
+
+    <p style="text-align: center; color: #2E62D9; margin-top: 0;">Ссылка на телеграм</p>
+
+    <tui-input
+      [tuiTextfieldLabelOutside]="true"
+      formControlName="connectLink"
+    >
+      Введите свой ник в telegram
+      <input
+        tuiTextfield
+        type="text"
+      />
+    </tui-input>
+  </form>
+</div>
+<div style="margin: 0 auto; width: 22vw; min-width: 290px;">
+  <button
+    tuiButton
+    type="button"
+    style="width: 22vw; min-width: 290px; margin-top: 15px;"
+    (click)="edit()"
+  >
+    Сохранить
+  </button>
+</div>

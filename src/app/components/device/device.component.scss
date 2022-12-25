@@ -1,0 +1,26 @@
+.item{
+  width: 10.5vw;
+  min-width: 130px;
+  padding-bottom: 15px;
+  font-size: 10px;
+  color: #434854;
+  text-align: center;
+  border-radius: 20px;
+  background: #FFFFFF;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.12));
+  margin-bottom: 20px;
+}
+
+.item_img{
+  width: 100%;
+  height: 125px;
+  margin-top: 15px;
+  object-fit: contain;
+}
+
+.button{
+  width: 120px;
+  height: 10px;
+  font-size: 10px;
+}
+

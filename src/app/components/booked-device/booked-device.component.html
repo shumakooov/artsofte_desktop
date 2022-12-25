@@ -1,0 +1,52 @@
+<div class="item">
+  <img [src]="imgUrl"
+       class="item_img"
+  />
+  <p style="font-weight: 700; font-size: 12px; line-height: 16px; color: #434854;">{{deviceName}}</p>
+  <p style="line-height: 14px; font-size: 10px; color: #434854;">{{date}}</p>
+  <p style="line-height: 14px; font-size: 10px; color: #434854;">{{timeFrom}} - {{timeTo}}</p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; justify-items: center; margin: 0 10%">
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      size="s"
+      style="font-size: 10px; width: 55px; --tui-padding: 0.5rem"
+      appearance="accent"
+      (click)="showDeviceProblem()"
+    >
+      <tui-svg
+        src="tuiIconAttention"
+        class="icon"
+      ></tui-svg>
+    </button>
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      size="s"
+      style="font-size: 10px; width: 55px; --tui-padding: 0.5rem"
+      (click)="showConfirmCancel()"
+    >
+      <tui-svg
+        src="tuiIconCloseCircleLarge"
+        class="icon"
+      >
+      </tui-svg>
+    </button>
+  </div>
+  <button
+    tuiButton
+    type="button"
+    class="button"
+    appearance="green"
+    size="s"
+    style="font-size: 10px; width: 80%; margin-top: 10px"
+    (click)="showConfirmReturn()"
+  >
+    <tui-svg
+      src="tuiIconCheckCircle"
+      class="icon"
+    ></tui-svg>
+  </button>
+</div>

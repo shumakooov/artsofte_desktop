@@ -1,0 +1,29 @@
+.wrapper{
+  display: grid;
+  grid-template-columns: 32% 68%;
+  column-gap: 20px;
+}
+
+.devices{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 150px;
+}
+
+.device{
+  margin-right: 20px;
+}
+
+//.devices .device:nth-child(4n){
+//  margin-right: 0;
+//}
+
+.sticky{
+  margin-top: 150px;
+  transition: 0.2s linear;
+}
+
+.nosticky{
+  margin-top: 100px;
+  transition: 0.2s linear;
+}

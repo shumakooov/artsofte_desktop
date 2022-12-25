@@ -1,0 +1,18 @@
+<span (tuiActiveZoneChange)="onActiveZone($any($event))">
+    <button
+      style="width: 100%; margin-bottom: 15px;"
+      tuiButton
+      size="s"
+      type="button"
+      iconRight="tuiIconChevronDown"
+      [tuiDropdown]="dropdownContent"
+      [tuiDropdownManual]="open"
+      (tuiObscured)="onObscured($any($event))"
+      (click)="onClick()"
+    >
+        Отдел
+    </button>
+    <ng-template #dropdownContent>
+        <div class="dropdown">Здесь будут отделы</div>
+    </ng-template>
+</span>

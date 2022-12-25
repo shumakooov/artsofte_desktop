@@ -1,0 +1,43 @@
+<div class="container">
+<p style="color: #2E62D9; font-size: 15px; text-align: center; margin-top: 0;">Вы хотите отменить бронь?</p>
+<div>
+  <button
+    tuiButton
+    type="button"
+    class="button"
+    appearance="green_outline"
+    size="m"
+    style="font-size: 15px; width: 125px; margin-right: 15px;"
+    (click)="[showCancelReserve(cancelReserve), deleteRecord()]"
+  >
+    Да
+  </button>
+  <button
+    tuiButton
+    type="button"
+    class="button"
+    appearance="red_outline"
+    size="m"
+    style="font-size: 15px; width: 125px;"
+  >
+    Нет
+  </button>
+</div>
+</div>
+
+<ng-template #cancelReserve let-observer>
+  <div class="cancelReserve">
+    <p style="color: #2E62D9; font-size: 15px; margin-top: 0;">Вы успешно отменили бронь</p>
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="green_outline"
+      size="m"
+      style="font-size: 15px; width: 40%;"
+      (click)="observer.complete()"
+    >
+      Ок
+    </button>
+  </div>
+</ng-template>

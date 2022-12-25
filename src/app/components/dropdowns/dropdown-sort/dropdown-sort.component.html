@@ -1,0 +1,19 @@
+<span (tuiActiveZoneChange)="onActiveZone($any($event))">
+    <button
+      style="width: 100%;"
+      tuiButton
+      type="button"
+      iconRight="tuiIconChevronDown"
+      appearance="outline"
+      size="s"
+      [tuiDropdown]="dropdownContent"
+      [tuiDropdownManual]="open"
+      (tuiObscured)="onObscured($any($event))"
+      (click)="onClick()"
+    >
+        Сортировать по...
+    </button>
+    <ng-template #dropdownContent>
+        <div class="dropdown">Здесь будут сортировки</div>
+    </ng-template>
+</span>

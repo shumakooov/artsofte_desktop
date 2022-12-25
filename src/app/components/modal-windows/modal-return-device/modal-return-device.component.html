@@ -1,0 +1,45 @@
+<div class="container">
+  <p style="color: #2E62D9; font-size: 15px; margin-top: 0; text-align: center;">Выберите отдел, куда отнесете<br>устройство</p>
+  <app-dropdown-department style=" width: 100%"></app-dropdown-department>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; justify-items: center; column-gap: 10px;">
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="green_outline"
+      size="m"
+      style="font-size: 15px; width: 130px;"
+      (click)="showReturnDevice(returnDevice)"
+    >
+      Подтвердить
+    </button>
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="red_outline"
+      size="m"
+      style="font-size: 15px; width: 130px;"
+    >
+      Отмена
+    </button>
+  </div>
+</div>
+
+<ng-template #returnDevice let-observer>
+  <div class="returnDevice">
+    <p style="color: #2E62D9; font-size: 15px; margin-top: 0;">Вы успешно сдали устройство</p>
+    <p style="font-size: 13px; margin-top: 0;">Не забудьте отнести устройство на базу</p>
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="green_outline"
+      size="m"
+      style="font-size: 15px; width: 40%;"
+      (click)="observer.complete()"
+    >
+      Ок
+    </button>
+  </div>
+</ng-template>

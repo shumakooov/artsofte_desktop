@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #E7EBF4;
+}
+
+[tuiWrapper][data-appearance='green'] {
+  background: #42C28C;
+  color: #fff;
+}
+
+[tuiWrapper][data-appearance='red_outline'] {
+  color: #FC5454;
+  border: 1px solid #FC5454;
+}
+
+[tuiWrapper][data-appearance='blue_outline'] {
+  color: #2E62D9;
+  border: 1px solid #2E62D9;
+}
+
+[tuiWrapper][data-appearance='green_outline'] {
+  color: #42C28C;
+  border: 1px solid #42C28C;
+}
+
+[tuiWrapper][data-appearance='white'] {
+  background: #fff;
+}

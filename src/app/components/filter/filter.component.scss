@@ -1,0 +1,16 @@
+.filter{
+  width: 18.5vw;
+  min-width: 220px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  position: fixed;
+}
+
+.island{
+  margin-bottom: 15px;
+}

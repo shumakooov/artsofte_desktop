@@ -1,0 +1,22 @@
+<div style="width: 70vw; min-width: 800px; margin: 0 auto;">
+  <div class="wrapper">
+    <div style="width: 18.5vw; min-width: 270px; display: block;" (scroll)="onscroll()" [ngClass]="filtersticky ? 'nosticky' : 'sticky'">
+      <app-filter></app-filter>
+    </div>
+    <div
+      class="devices"
+      *ngIf="devices$ | async as devices"
+    >
+      <app-device
+        class="device"
+        *ngFor="let device of devices"
+        [imgUrl]="device.image"
+        [deviceName]="device.name"
+        [os]="device.os"
+        [diagonal]="device.diagonal"
+        [department]="device.department.name"
+        [id]="device.id"
+      ></app-device>
+    </div>
+  </div>
+</div>

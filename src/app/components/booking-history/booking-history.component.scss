@@ -1,0 +1,26 @@
+.wrapper{
+  width: 20vw;
+  min-width: 240px;
+  max-height: 560px;
+  overflow: auto;
+  border-radius: 22px;
+  background-color: #fff;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+  padding: 35px 25px;
+}
+
+p {
+  overflow: hidden;
+}
+p:after {  content:'....................................................................................................';
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+p span:first-of-type {
+  float:left;
+}
+p span:last-of-type {
+  float:right;
+}
+

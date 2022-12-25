@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <p style="color: #2E62D9; font-size: 15px; margin-bottom: 15px; margin-top: 0; font-weight: 800;">Опишите проблему</p>
+  <div class="container">
+    <div>
+      <app-dropdown-reason></app-dropdown-reason>
+      <form
+        style="width: 270px;"
+        [formGroup]="testForm"
+      >
+        <div>
+          <tui-text-area
+            style="width: 270px; height: 190px;"
+            formControlName="testValue2"
+          >
+            Описание
+          </tui-text-area>
+        </div>
+      </form>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; flex-direction: column;">
+      <app-input-files></app-input-files>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; justify-items: center; column-gap: 10px;">
+        <button
+          tuiButton
+          type="button"
+          class="button"
+          appearance="green_outline"
+          size="m"
+          style="font-size: 15px; width: 130px;"
+        >
+          Отправить
+        </button>
+        <button
+          tuiButton
+          type="button"
+          class="button"
+          appearance="red_outline"
+          size="m"
+          style="font-size: 15px; width: 130px;"
+        >
+          Отмена
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

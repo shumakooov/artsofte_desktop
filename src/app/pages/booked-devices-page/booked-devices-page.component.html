@@ -1,0 +1,19 @@
+<div style="width: 70vw; min-width: 800px; margin: 0 auto;">
+  <div class="wrapper">
+    <div style="width: 18.5vw; min-width: 270px; display: block;" (scroll)="onscroll()" [ngClass]="filtersticky ? 'nosticky' : 'sticky'">
+      <app-filter></app-filter>
+    </div>
+    <div class="devices" *ngIf="bookedDevices$ | async as bookedDevices">
+      <app-booked-device
+        class="device"
+        *ngFor="let bookedDevice of bookedDevices"
+        [idRecord]="bookedDevice.id"
+        [imgUrl]="bookedDevice.device.imgPath"
+        [deviceName]="bookedDevice.device.name"
+        [timeFrom]="bookedDevice.timeFrom"
+        [timeTo]="bookedDevice.timeTo"
+        [date]="bookedDevice.date"
+      ></app-booked-device>
+    </div>
+  </div>
+</div>

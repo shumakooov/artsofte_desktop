@@ -1,0 +1,36 @@
+<div style="margin-top: 30vh;">
+  <div style="width: 500px; margin: 0 auto;">
+    <form
+      class="b-form"
+      [formGroup]="authForm"
+    >
+      <tui-input formControlName="username">
+        Type an username
+        <input
+          tuiTextfield
+        />
+      </tui-input>
+
+      <tui-input-password
+        formControlName="password"
+        class="tui-space_top-2"
+      >
+        Type a password
+        <input
+          tuiTextfield
+          placeholder="Make it secure!"
+        />
+      </tui-input-password>
+
+      <button
+        tuiButton
+        type="button"
+        [disabled]="authForm.invalid"
+        style="margin-top: 15px;"
+        (click)="login()"
+      >
+        Войти
+      </button>
+    </form>
+  </div>
+</div>

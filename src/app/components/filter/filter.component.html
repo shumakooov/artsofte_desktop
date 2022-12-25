@@ -1,0 +1,70 @@
+<div class="filter">
+  <div>
+    <form style="width: 100%">
+      <tui-input style="margin-bottom: 15px;"
+                 [tuiTextfieldLabelOutside]="true"
+                 tuiTextfieldSize="m">
+        Начните поиск здесь...
+        <input
+          tuiTextfield
+          type="text"
+        />
+      </tui-input>
+    </form>
+  </div>
+
+  <div>
+    <tui-island class="island">
+      <p style="margin-top: 0; margin-bottom: 11px;">Размер экрана, дюймов</p>
+      <tui-range
+        size="m"
+        [min]="min"
+        [max]="max"
+        [step]="step"
+        [(ngModel)]="rangeValue"
+      ></tui-range>
+      <p style="margin-bottom: 0; margin-top: 11px;">
+        <output for="m-size-range">
+          <code>{{ rangeValue | json }}</code>
+        </output>
+        дюймов
+      </p>
+    </tui-island>
+  </div>
+
+  <div style="margin-bottom: 15px; justify-items: center;">
+    <app-dropdown-system></app-dropdown-system>
+    <app-dropdown-type></app-dropdown-type>
+    <app-dropdown-department></app-dropdown-department>
+    <app-dropdown-tag></app-dropdown-tag>
+  </div>
+
+  <div>
+    <form
+      class="b-form"
+      style="margin-bottom: 15px; width: 100%"
+      [tuiTextfieldCleaner]="true"
+    >
+      <tui-input-date-range
+        tuiUnfinishedValidator="Finish filling the field"
+        [min]="minDate"
+        [max]="maxDate"
+        [(ngModel)]="date"
+      >
+        Choose dates
+        <input
+          tuiTextfield
+          placeholder="From - To"
+        />
+      </tui-input-date-range>
+      <tui-error
+        formControlName="testValue"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </form>
+  </div>
+
+  <div class="">
+    <app-dropdown-sort></app-dropdown-sort>
+  </div>
+</div>

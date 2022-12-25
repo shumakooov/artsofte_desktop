@@ -1,0 +1,35 @@
+<div class="container">
+  <p style="color: #2E62D9; font-size: 15px; margin-bottom: 15px; margin-top: 0;">Опишите проблему</p>
+  <app-dropdown-reason></app-dropdown-reason>
+
+  <form
+    style="max-width: 270px; display: block; margin-bottom: 15px;"
+    [formGroup]="testForm"
+  >
+    <div class="tui-row">
+      <div>
+        <tui-text-area
+          style="width: 270px; height: 190px;"
+          formControlName="testValue2"
+        >
+          Описание
+        </tui-text-area>
+      </div>
+    </div>
+  </form>
+
+  <app-input-files></app-input-files>
+
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="green_outline"
+      size="m"
+      style="font-size: 15px; width: 270px;"
+    >
+      Отправить
+    </button>
+</div>
+
+

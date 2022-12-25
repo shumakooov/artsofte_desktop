@@ -1,0 +1,18 @@
+.item{
+  width: 160px;
+  padding-bottom: 15px;
+  font-size: 10px;
+  color: #526ED3;
+  text-align: center;
+  border-radius: 20px;
+  background: #FFFFFF;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.12));
+  margin-bottom: 20px;
+}
+
+.item_img{
+  width: 100%;
+  height: 125px;
+  object-fit: contain;
+  margin-top: 15px;
+}

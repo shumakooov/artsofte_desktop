@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <app-profile-info style="margin-right: 20px"></app-profile-info>
+  <app-booking-history style="margin-right: 20px"></app-booking-history>
+  <div>
+  <app-device-problem></app-device-problem>
+    <div style="display: flex; flex-direction: row; width: 22vw; min-width: 290px; margin-top: 15px;">
+      <button
+        tuiButton
+        type="button"
+        style="width: 48%; margin-right: 4%;"
+        appearance="blue_outline"
+        routerLink="/profile/edit"
+      >
+        Редактировать
+      </button>
+      <button
+        tuiButton
+        type="button"
+        style="width: 48%;"
+        appearance="red_outline"
+        (click)="logout()"
+      >
+        Выйти
+      </button>
+    </div>
+  </div>
+</div>
+
+
