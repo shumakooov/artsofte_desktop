@@ -23,7 +23,7 @@ export class ModalCancelReserveComponent {
     this.dialogService.open(content, {size: "auto"}).subscribe();
   }
 
-  deleteRecord() {
+  cancelBookedDevice() {
     this.deviceService.cancelBookedDeviceByRecordId(this.data).subscribe(()=>{
       location.reload()
     })

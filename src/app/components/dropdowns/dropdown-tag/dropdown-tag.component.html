@@ -1,36 +1,61 @@
-<tui-hosted-dropdown
-  #dropdown
-  [tuiDropdownMaxHeight]="500"
-  [content]="content"
-  style="width: 100%;"
+<!--<tui-hosted-dropdown-->
+<!--  #dropdown-->
+<!--  [tuiDropdownMaxHeight]="500"-->
+<!--  [content]="content"-->
+<!--  style="width: 100%;"-->
+<!--&gt;-->
+<!--  <button-->
+<!--    style="width: 100%;"-->
+<!--    tuiButton-->
+<!--    size="s"-->
+<!--    type="button"-->
+<!--    appearance="whiteblock"-->
+<!--    [iconRight]="arrow"-->
+<!--    [pseudoHover]="dropdown.open || null"-->
+<!--  >Тег</button>-->
+<!--</tui-hosted-dropdown>-->
+<!--<ng-template #content>-->
+<!--  <tui-data-list-->
+<!--    style="width: 12rem"-->
+<!--    size="m"-->
+<!--  >-->
+<!--    <tui-opt-group-->
+<!--      tuiMultiSelectGroup-->
+<!--      [(ngModel)]="value"-->
+<!--    >-->
+<!--      <tui-opt-group>-->
+<!--        <button-->
+<!--          *ngFor="let tag of tags"-->
+<!--          tuiOption-->
+<!--          [value]="tag"-->
+<!--        >-->
+<!--          {{ tag }}-->
+<!--        </button>-->
+<!--      </tui-opt-group>-->
+<!--    </tui-opt-group>-->
+<!--  </tui-data-list>-->
+<!--</ng-template>-->
+
+
+
+<tui-select
+  class="b-form"
+  [valueContent]="content"
+  [(ngModel)]="value"
 >
-  <button
-    style="width: 100%;"
-    tuiButton
-    size="s"
-    type="button"
-    [iconRight]="arrow"
-    [pseudoHover]="dropdown.open || null"
-  >Тег</button>
-</tui-hosted-dropdown>
-<ng-template #content>
-  <tui-data-list
-    style="width: 12rem"
-    size="m"
-  >
-    <tui-opt-group
-      tuiMultiSelectGroup
-      [(ngModel)]="value"
-    >
+  Тег
+  <ng-template tuiDataList>
+    <tui-data-list>
       <tui-opt-group>
-        <button
-          *ngFor="let tag of tags"
-          tuiOption
-          [value]="tag"
-        >
-          {{ tag }}
-        </button>
+        <tui-opt-group tuiMultiSelectGroup>
+          <button
+            *ngFor="let tag of tags"
+            tuiOption
+            [value]="tag"
+          >
+          </button>
+        </tui-opt-group>
       </tui-opt-group>
-    </tui-opt-group>
-  </tui-data-list>
-</ng-template>
+    </tui-data-list>
+  </ng-template>
+</tui-select>

@@ -9,7 +9,7 @@
     >
       <app-device
         class="device"
-        *ngFor="let device of devices"
+        *ngFor="let device of devices | filter:searchKey:'name'"
         [imgUrl]="device.image"
         [deviceName]="device.name"
         [os]="device.os"

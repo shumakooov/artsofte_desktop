@@ -6,7 +6,7 @@
     <div class="devices" *ngIf="bookedDevices$ | async as bookedDevices">
       <app-booked-device
         class="device"
-        *ngFor="let bookedDevice of bookedDevices"
+        *ngFor="let bookedDevice of bookedDevices | filterBooked:searchKey:'device':'name'"
         [idRecord]="bookedDevice.id"
         [imgUrl]="bookedDevice.device.imgPath"
         [deviceName]="bookedDevice.device.name"

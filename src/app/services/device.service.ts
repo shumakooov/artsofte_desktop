@@ -2,12 +2,14 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {BookedDevice, Device, Record} from "../interfaces";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceService {
+  public search = new BehaviorSubject<string>("");
+
   constructor(private http: HttpClient) {
   }
 

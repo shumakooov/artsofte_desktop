@@ -12,7 +12,7 @@ import {
   TuiHostedDropdownModule,
   TuiScrollbarModule,
   TuiCalendarModule,
-  TuiAlertModule
+  TuiAlertModule, TuiLoaderModule
 } from "@taiga-ui/core";
 import {
   TuiInputModule,
@@ -27,7 +27,9 @@ import {
   TuiTagModule,
   TuiMultiSelectModule,
   TuiInputTimeModule,
-  TuiInputPasswordModule
+  TuiInputPasswordModule,
+  TuiDataListWrapperModule,
+  TuiSelectModule
 } from '@taiga-ui/kit';
 import {TuiActiveZoneModule} from '@taiga-ui/cdk';
 
@@ -63,6 +65,8 @@ import {ModalDeviceProblemComponent} from "./components/modal-windows/modal-devi
 import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
+import { FilterPipe } from './filter.pipe';
+import {FilterBookedPipe} from "./filterBooked.pipe";
 
 
 @NgModule({
@@ -92,6 +96,8 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
     ModalDeviceProblemComponent,
     LoginPageComponent,
     EditProfilePageComponent,
+    FilterPipe,
+    FilterBookedPipe
   ],
   imports: [
     BrowserModule,
@@ -125,7 +131,10 @@ import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile
     TuiInputTimeModule,
     TuiInputPasswordModule,
     HttpClientModule,
-    TuiAlertModule
+    TuiAlertModule,
+    TuiDataListWrapperModule,
+    TuiSelectModule,
+    TuiLoaderModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

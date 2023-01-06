@@ -3,11 +3,14 @@
     <form style="width: 100%">
       <tui-input style="margin-bottom: 15px;"
                  [tuiTextfieldLabelOutside]="true"
-                 tuiTextfieldSize="m">
+                 tuiTextfieldSize="m"
+      >
         Начните поиск здесь...
         <input
           tuiTextfield
           type="text"
+          [(ngModel)]="searchTerm"
+          (keyup)="search($event)"
         />
       </tui-input>
     </form>
@@ -64,7 +67,18 @@
     </form>
   </div>
 
-  <div class="">
+  <div style="margin-bottom: 15px;">
     <app-dropdown-sort></app-dropdown-sort>
   </div>
+
+  <button
+    tuiButton
+    type="button"
+    class="button"
+    appearance="green_outline"
+    style="width: 100%;"
+    size="m"
+  >
+    Поиск
+  </button>
 </div>

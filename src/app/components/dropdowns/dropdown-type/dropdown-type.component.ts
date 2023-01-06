@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from "@angular/forms";
+import {FilterService} from "../../../services/filter.service";
 
 @Component({
   selector: 'app-dropdown-type',
@@ -6,25 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dropdown-type.component.scss']
 })
 export class DropdownTypeComponent implements OnInit {
-  open = false;
+  filters: string[]
 
-  onClick(): void {
-    this.open = !this.open;
-  }
+  value = new FormControl();
 
-  onObscured(obscured: boolean): void {
-    if (obscured) {
-      this.open = false;
-    }
-  }
-
-  onActiveZone(active: boolean): void {
-    this.open = active && this.open;
-  }
-
-  constructor() { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
+    this.filterService.getFilters().subscribe(filters => {
+      this.filters = filters.types.map(function (el, idx, array) {
+        return el.name
+      })
+    })
   }
 
 }

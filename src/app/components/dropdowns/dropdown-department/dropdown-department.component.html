@@ -1,18 +1,46 @@
-<span (tuiActiveZoneChange)="onActiveZone($any($event))">
-    <button
-      style="width: 100%; margin-bottom: 15px;"
-      tuiButton
-      size="s"
-      type="button"
-      iconRight="tuiIconChevronDown"
-      [tuiDropdown]="dropdownContent"
-      [tuiDropdownManual]="open"
-      (tuiObscured)="onObscured($any($event))"
-      (click)="onClick()"
-    >
-        Отдел
-    </button>
-    <ng-template #dropdownContent>
-        <div class="dropdown">Здесь будут отделы</div>
-    </ng-template>
-</span>
+<!--<form style="margin-bottom: 15px;">-->
+<!--  <tui-select-->
+<!--    tuiTextfieldSize="s"-->
+<!--    [formControl]="value"-->
+<!--  >-->
+<!--    Отдел-->
+<!--    <input-->
+<!--      tuiTextfield-->
+<!--      placeholder="Выберите отдел"-->
+<!--    />-->
+<!--    <tui-data-list-wrapper-->
+<!--      *tuiDataList-->
+<!--      [items]="filters"-->
+<!--    ></tui-data-list-wrapper>-->
+<!--  </tui-select>-->
+<!--</form>-->
+
+<form style="margin-bottom: 15px;">
+<tui-select
+  class="b-form"
+  [tuiTextfieldLabelOutside]="true"
+  [valueContent]="depts ? stringify(depts) : loading"
+  [(ngModel)]="value"
+  tuiTextfieldSize="s"
+>
+  Отдел
+  <input
+    tuiTextfield
+    placeholder="Выберите отдел"
+  />
+  <ng-template tuiDataList>
+    <tui-data-list *ngIf="depts; else loading">
+      <button
+        *ngFor="let dept of depts"
+        tuiOption
+        [value]="dept.id"
+      >
+        {{ dept.name }}
+      </button>
+    </tui-data-list>
+  </ng-template>
+  <ng-template #loading>
+    <tui-loader class="tui-space_vertical-3 loader"></tui-loader>
+  </ng-template>
+</tui-select>
+</form>

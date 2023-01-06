@@ -35,3 +35,10 @@ export interface BookedDevice{
   booked: boolean
   id: number
 }
+
+export interface Filter {
+  types: [{id: number, name: string}],
+  systems: [{id: number, name: string}],
+  departments: [{id: number, name: string}],
+  tags: [{id: number, name: string}]
+}

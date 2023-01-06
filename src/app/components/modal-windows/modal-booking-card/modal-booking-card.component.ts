@@ -46,7 +46,7 @@ export class ModalBookingCardComponent implements OnInit{
   valueCalendarTuiDay: TuiDay | null = null;
 
   onDayClick(day: TuiDay): void {
-    this.valueCalendar = [day.year, day.month + 1, day.day].join('-');
+    this.valueCalendar = [day.year, day.formattedMonthPart, day.formattedDayPart].join('-');
     this.valueCalendarTuiDay = day;
   }
 
@@ -59,6 +59,7 @@ export class ModalBookingCardComponent implements OnInit{
     }
     this.deviceService.doRecordDevice(record).subscribe(()=>{
       location.reload()
+      console.log("sdads")
     })
   }
 

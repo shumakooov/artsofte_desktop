@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListDevicesPageComponent implements OnInit {
+  searchKey: string = "";
 
   filtersticky:boolean = false;
 
@@ -31,5 +32,9 @@ export class ListDevicesPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.devices$ = this.deviceService.getDevicesShort()
+
+    this.deviceService.search.subscribe((value) => {
+      this.searchKey = value;
+    })
   }
 }

@@ -9,6 +9,7 @@ import {DeviceService} from "../../services/device.service";
   styleUrls: ['./booked-devices-page.component.scss']
 })
 export class BookedDevicesPageComponent implements OnInit {
+  searchKey: string = "";
 
   filtersticky:boolean = false;
 
@@ -30,6 +31,10 @@ export class BookedDevicesPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookedDevices$ = this.deviceService.getBookedDevices()
+
+    this.deviceService.search.subscribe((value) => {
+      this.searchKey = value;
+    })
   }
 
 }

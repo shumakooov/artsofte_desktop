@@ -1,5 +1,14 @@
 <div style="margin-top: 30vh;">
-  <div style="width: 500px; margin: 0 auto;">
+  <div class="wrapper">
+    <div style="display: flex; flex-direction: row; margin-bottom: 30px;">
+      <img src="../../../assets/logo.svg" alt="Логотип">
+      <div style="margin-left: 18px;">
+        <p style="font-size: 16px; line-height: 20px; letter-spacing: 2px; margin-bottom: 0">БРОНЬ УСТРОЙСТВ</p>
+        <p
+          style="font-size: 16px; border-bottom: 2px solid #2E62D9; width: 100px; margin-top: 0; letter-spacing: 2px;">
+          ARTSOFTE</p>
+      </div>
+    </div>
     <form
       class="b-form"
       [formGroup]="authForm"
@@ -26,7 +35,8 @@
         tuiButton
         type="button"
         [disabled]="authForm.invalid"
-        style="margin-top: 15px;"
+        style="margin-top: 15px; width: 100%;"
+        appearance="green"
         (click)="login()"
       >
         Войти

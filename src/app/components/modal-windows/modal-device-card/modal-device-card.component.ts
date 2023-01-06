@@ -13,7 +13,7 @@ import {DeviceService} from "../../../services/device.service";
   templateUrl: './modal-device-card.component.html',
   styleUrls: ['./modal-device-card.component.scss']
 })
-export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
+export class ModalDeviceCardComponent implements OnInit{
   get data(): number {
     return this.context.data;
   }

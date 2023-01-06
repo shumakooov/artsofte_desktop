@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TuiDay, TuiDayRange} from "@taiga-ui/cdk";
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-filter',
@@ -9,6 +10,10 @@ import {TuiDay, TuiDayRange} from "@taiga-ui/cdk";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent implements OnInit {
+  constructor(private deviceService: DeviceService) {
+  }
+  public searchTerm: string;
+
   //Теги
   value = [`Tag`, `Tag`, `Tag`, `Tag`, `Tag`];
   readonly controlTag = new FormControl([]);
@@ -28,4 +33,8 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search(event: any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.deviceService.search.next(this.searchTerm);
+  }
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl} from "@angular/forms";
+import {FilterService} from "../../../services/filter.service";
+import {Filter} from "../../../interfaces";
+import {TuiContextWithImplicit, tuiPure, TuiStringHandler} from "@taiga-ui/cdk";
 
 @Component({
   selector: 'app-dropdown-department',
@@ -6,25 +10,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dropdown-department.component.scss']
 })
 export class DropdownDepartmentComponent implements OnInit {
-  open = false;
 
-  onClick(): void {
-    this.open = !this.open;
+  value: number;
+
+  depts: [{ id: number; name: string }]
+
+  constructor(private filterService: FilterService) {
   }
-
-  onObscured(obscured: boolean): void {
-    if (obscured) {
-      this.open = false;
-    }
-  }
-
-  onActiveZone(active: boolean): void {
-    this.open = active && this.open;
-  }
-
-  constructor() { }
 
   ngOnInit(): void {
+    this.filterService.getFilters().subscribe(filters => {
+      this.depts = filters.departments
+    })
   }
 
+  @tuiPure
+  stringify(
+    items: readonly [{ id: number; name: string }],
+  ): TuiStringHandler<TuiContextWithImplicit<number>> {
+    const map = new Map(items.map(({id, name}) => [id, name] as [number, string]));
+
+    return ({$implicit}: TuiContextWithImplicit<number>) => map.get($implicit) || ``;
+  }
 }
