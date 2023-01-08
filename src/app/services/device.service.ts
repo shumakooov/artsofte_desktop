@@ -9,6 +9,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 })
 export class DeviceService {
   public search = new BehaviorSubject<string>("");
+  public deptValueId = new BehaviorSubject<number>(Number(''))
 
   constructor(private http: HttpClient) {
   }
@@ -31,5 +32,9 @@ export class DeviceService {
 
   cancelBookedDeviceByRecordId(recordId: number){
     return this.http.post(`${environment.API_URL}/records/cancel/${recordId}`, null ,{ withCredentials: true })
+  }
+
+  getFilteredDevices(): Observable<Device[]>{
+    return this.http.get<Device[]>(`${environment.API_URL}/filter/search`,{ withCredentials: true })
   }
 }

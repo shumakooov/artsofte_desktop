@@ -12,15 +12,12 @@ import {Observable} from "rxjs";
 export class ListDevicesPageComponent implements OnInit {
   searchKey: string = "";
 
-  filtersticky:boolean = false;
+  filtersticky: boolean = false;
 
-  @HostListener('window:scroll', ['$event']) onscroll(){
-    if(window.scrollY > 50)
-    {
+  @HostListener('window:scroll', ['$event']) onscroll() {
+    if (window.scrollY > 50) {
       this.filtersticky = true;
-    }
-    else
-    {
+    } else {
       this.filtersticky = false;
     }
   }
@@ -36,5 +33,9 @@ export class ListDevicesPageComponent implements OnInit {
     this.deviceService.search.subscribe((value) => {
       this.searchKey = value;
     })
+  }
+
+  public getFilteredDevices() {
+    this.devices$ = this.deviceService.getFilteredDevices()
   }
 }

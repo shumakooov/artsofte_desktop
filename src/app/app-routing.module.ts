@@ -6,14 +6,30 @@ import {ProfilePageComponent} from "./pages/profile-page/profile-page.component"
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {AuthGuard} from "./classes/auth.guard";
 import {EditProfilePageComponent} from "./pages/edit-profile-page/edit-profile-page.component";
+import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
+import {HomeLayoutComponent} from "./layouts/home-layout/home-layout.component";
 
 const routes: Routes = [
-  {path: '', redirectTo:'/login', pathMatch:'full'},
-  {path: 'login', component: LoginPageComponent},
-  {path: 'devices', component: ListDevicesPageComponent, canActivate: [AuthGuard]},
-  {path: 'booked', component: BookedDevicesPageComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]},
-  {path: 'profile/edit', component: EditProfilePageComponent}
+  // {path: '', redirectTo:'/login', pathMatch:'full'},
+  // {path: 'login', component: LoginPageComponent},
+  // {path: 'devices', component: ListDevicesPageComponent, canActivate: [AuthGuard]},
+  // {path: 'booked', component: BookedDevicesPageComponent, canActivate: [AuthGuard]},
+  // {path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]},
+  // {path: 'profile/edit', component: EditProfilePageComponent}
+  {
+    path: '', component: LoginLayoutComponent, children: [
+      {path: '', redirectTo:'/login', pathMatch: 'full'},
+      {path: 'login', component: LoginPageComponent}
+    ]
+  },
+  {
+    path: '', component: HomeLayoutComponent, canActivate: [AuthGuard], children: [
+      {path: 'devices', component: ListDevicesPageComponent},
+      {path: 'booked', component: BookedDevicesPageComponent},
+      {path: 'profile', component: ProfilePageComponent},
+      {path: 'profile/edit', component: EditProfilePageComponent}
+    ]
+  }
 ];
 
 @NgModule({

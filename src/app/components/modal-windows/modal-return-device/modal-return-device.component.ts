@@ -10,10 +10,14 @@ import {POLYMORPHEUS_CONTEXT} from "@tinkoff/ng-polymorpheus";
 export class ModalReturnDeviceComponent {
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
               @Inject(POLYMORPHEUS_CONTEXT)
-              private readonly context: TuiDialogContext<number, number>,) { }
+              private readonly context: TuiDialogContext<number, number>) { }
 
   showReturnDevice(content: TemplateRef<TuiDialogContext<void>>): void {
     this.dialogService.open(content, {size: "auto"}).subscribe();
+  }
+
+  closeReturnDevice() {
+    this.context.completeWith(1)
   }
 
 }

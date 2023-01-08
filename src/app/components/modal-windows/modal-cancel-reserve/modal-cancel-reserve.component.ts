@@ -28,4 +28,8 @@ export class ModalCancelReserveComponent {
       location.reload()
     })
   }
+
+  closeCanselReserve() {
+    this.context.completeWith(1)
+  }
 }

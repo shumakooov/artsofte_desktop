@@ -65,8 +65,10 @@ import {ModalDeviceProblemComponent} from "./components/modal-windows/modal-devi
 import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
-import { FilterPipe } from './filter.pipe';
-import {FilterBookedPipe} from "./filterBooked.pipe";
+import { FilterPipe } from './pipes/filter.pipe';
+import {FilterBookedPipe} from "./pipes/filterBooked.pipe";
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 
 
 @NgModule({
@@ -97,7 +99,9 @@ import {FilterBookedPipe} from "./filterBooked.pipe";
     LoginPageComponent,
     EditProfilePageComponent,
     FilterPipe,
-    FilterBookedPipe
+    FilterBookedPipe,
+    LoginLayoutComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,

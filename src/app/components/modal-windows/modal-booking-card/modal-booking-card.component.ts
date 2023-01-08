@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core'
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TUI_DATE_FORMAT, TuiDay, TuiTime, TuiTimeMode} from "@taiga-ui/cdk";
 import {tuiCreateTimePeriods, tuiInputTimeOptionsProvider} from "@taiga-ui/kit";
-import {TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
+import {TuiAlertService, TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
 import {POLYMORPHEUS_CONTEXT} from "@tinkoff/ng-polymorpheus";
 import {Observable} from "rxjs";
 import {Device, Record} from "../../../interfaces";
@@ -23,7 +23,9 @@ export class ModalBookingCardComponent implements OnInit{
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
               @Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<number, number>,
               private deviceService: DeviceService,
-              private router: Router) { }
+              private router: Router,
+              @Inject(TuiAlertService)
+              private readonly alertService: TuiAlertService) { }
 
   device$: Observable<Device>
   timeStartForm: FormGroup
@@ -58,9 +60,11 @@ export class ModalBookingCardComponent implements OnInit{
       timeto: this.valueCalendar + 'T' + this.timeFinishForm.value.timeFinish.toString() + ':00'
     }
     this.deviceService.doRecordDevice(record).subscribe(()=>{
-      location.reload()
-      console.log("sdads")
-    })
+      location.reload()},
+      error => {
+        this.alertService.open(error.error.message).subscribe();
+      }
+      )
   }
 
   valueTag = [`Xiaomi`, `Android`, `6,67"`, `MIUI`];

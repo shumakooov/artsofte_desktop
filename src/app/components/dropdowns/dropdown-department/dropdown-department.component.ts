@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
 import {FilterService} from "../../../services/filter.service";
-import {Filter} from "../../../interfaces";
 import {TuiContextWithImplicit, tuiPure, TuiStringHandler} from "@taiga-ui/cdk";
+import {DeviceService} from "../../../services/device.service";
 
 @Component({
   selector: 'app-dropdown-department',
@@ -15,7 +14,8 @@ export class DropdownDepartmentComponent implements OnInit {
 
   depts: [{ id: number; name: string }]
 
-  constructor(private filterService: FilterService) {
+  constructor(private filterService: FilterService,
+              private deviceService: DeviceService) {
   }
 
   ngOnInit(): void {
