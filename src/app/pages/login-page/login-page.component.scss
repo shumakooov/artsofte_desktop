@@ -6,3 +6,17 @@
   border-radius: 22px;
   padding: 25px;
 }
+
+.logoline {
+  width: 100%;
+  height: 112px;
+  background-repeat: repeat;
+  background-image: url("../../../assets/logoline.png");
+  position: fixed;
+  &_bottom {
+    bottom: 0;
+  }
+  &_top {
+    top: 0;
+  }
+}

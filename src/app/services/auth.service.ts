@@ -18,7 +18,6 @@ export class AuthService {
 
   logout() {
     return this.http.get<any>(`${environment.API_URL}/user/logout`)
-      // .pipe(tap(()=> this.loggedUser = undefined))
   }
 
   isAuthenticated(): Observable<boolean>{
