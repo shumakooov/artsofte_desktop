@@ -5,7 +5,7 @@ import {TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
 import {POLYMORPHEUS_CONTEXT, PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
 import {ModalBookingCardComponent} from "../modal-booking-card/modal-booking-card.component";
 import {Observable} from "rxjs";
-import {Device} from "../../../interfaces";
+import {Device, RecordsHistory} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
 
 @Component({
@@ -43,9 +43,11 @@ export class ModalDeviceCardComponent implements OnInit{
   }
 
   device$: Observable<Device>
+  usageHistory$: Observable<RecordsHistory[]>
 
   ngOnInit(): void {
     this.device$ = this.deviceService.getDevicesShortById(this.data)
+    this.usageHistory$ = this.deviceService.getUsageHistoryById(this.data)
   }
 
   valueCalendar: TuiDay | null = null;

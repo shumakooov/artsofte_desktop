@@ -1,18 +1,18 @@
-export interface User{
+export interface User {
   username: string;
   password: string;
 }
 
-export interface Device{
+export interface Device {
   id: number,
   name: string,
   os: string,
   diagonal: number,
-  department: { id: number, name: string},
+  department: { id: number, name: string },
   image: string
 }
 
-export interface Profile{
+export interface Profile {
   id: number,
   firstname: string,
   secondname: string,
@@ -27,8 +27,8 @@ export interface Record {
   timefrom: string,
 }
 
-export interface BookedDevice{
-  device: { id: number, name: string, imgPath: string},
+export interface BookedDevice {
+  device: { id: number, name: string, imgPath: string },
   date: string,
   timeFrom: string,
   timeTo: string,
@@ -37,8 +37,23 @@ export interface BookedDevice{
 }
 
 export interface Filter {
-  types: [{id: number, name: string}],
-  systems: [{id: number, name: string}],
-  departments: [{id: number, name: string}],
-  tags: [{id: number, name: string}]
+  types: [{ id: number, name: string }],
+  systems: [{ id: number, name: string }],
+  departments: [{ id: number, name: string }],
+  tags: [{ id: number, name: string }]
+}
+
+export interface IsAuth {
+  authorize: boolean
+}
+
+export interface RecordsHistory {
+  date: string,
+  records: [
+    {
+      userName: string,
+      timeFrom: string,
+      timeTo: string
+    }
+  ]
 }

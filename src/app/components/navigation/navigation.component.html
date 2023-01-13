@@ -1,19 +1,19 @@
 <nav class="nav" (scroll)="onscroll()" [ngClass]="navbarsticky ? 'nosticky' : 'sticky'">
   <p>БРОНЬ УСТРОЙСТВ ARTSOFTE</p>
   <div>
-    <a routerLink="/booked" class="link" routerLinkActive="active">
+    <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
       <tui-svg
         src="tuiIconCheckCircleLarge"
         class="icon"
       ></tui-svg>
     </a>
-    <a routerLink="/devices" class="link" routerLinkActive="active">
+    <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick()">
       <tui-svg
         src="tuiIconSearchLarge"
         class="icon"
       ></tui-svg>
     </a>
-    <a routerLink="/profile" class="link" routerLinkActive="active">
+    <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick()">
       <tui-svg
         src="tuiIconUser"
         class="icon"

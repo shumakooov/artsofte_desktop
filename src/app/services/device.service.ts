@@ -1,7 +1,7 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
-import {BookedDevice, Device, Record} from "../interfaces";
+import {BookedDevice, Device, Record, RecordsHistory} from "../interfaces";
 import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
@@ -36,5 +36,9 @@ export class DeviceService {
 
   getFilteredDevices(): Observable<Device[]>{
     return this.http.get<Device[]>(`${environment.API_URL}/filter/search`,{ withCredentials: true })
+  }
+
+  getUsageHistoryById(deviceId: number): Observable<RecordsHistory[]>{
+    return this.http.get<RecordsHistory[]>(`${environment.API_URL}/records/history/${deviceId}`,{ withCredentials: true })
   }
 }

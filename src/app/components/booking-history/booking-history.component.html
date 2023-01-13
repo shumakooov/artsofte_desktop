@@ -1,9 +1,15 @@
 <div class="wrapper">
-  <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История бронирований</h3>
-  <div *ngIf="bookingHistory$ | async as items">
-    <div *ngFor="let item of items">
-      <h3 style="font-size: 12px;">{{item.date}}</h3>
-      <p style="font-size: 12px;"><span>{{item.device.name}}</span><span>{{item.timeFrom}} - {{item.timeTo}}</span></p>
+  <tui-scrollbar>
+    <div style="height: 500px; padding-right: 25px;">
+      <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История бронирований</h3>
+      <div *ngIf="bookingHistory$ | async as items">
+        <div *ngFor="let item of items">
+          <h3 style="font-size: 12px;">{{item.date}}</h3>
+          <p style="font-size: 12px;"><span>{{item.device.name}}</span><span>{{item.timeFrom}} - {{item.timeTo}}</span>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+  </tui-scrollbar>
 </div>
+

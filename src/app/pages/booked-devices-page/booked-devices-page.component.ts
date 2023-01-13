@@ -10,7 +10,6 @@ import {DeviceService} from "../../services/device.service";
 })
 export class BookedDevicesPageComponent implements OnInit {
   searchKey: string = "";
-
   filtersticky:boolean = false;
 
   @HostListener('window:scroll', ['$event']) onscroll(){

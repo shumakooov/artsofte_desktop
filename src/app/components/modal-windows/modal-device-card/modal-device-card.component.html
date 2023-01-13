@@ -6,10 +6,12 @@
              [src]="device.image">
       </div>
       <div class="container_spec">
-        <p style="text-align: center; font-size: 15px; font-weight: 700; margin: 0; line-height: 20px;">{{device.name}}</p>
+        <p
+          style="text-align: center; font-size: 15px; font-weight: 700; margin: 0; line-height: 20px;">{{device.name}}</p>
         <p style="text-align: center; font-size: 12px; line-height: 13px;">OS: {{device.os}}</p>
         <p style="text-align: center; font-size: 12px; line-height: 13px;">Диагональ: {{device.diagonal}}</p>
-        <p style="text-align: center; font-size: 12px; line-height: 13px; margin-bottom: 0;">Отдел: {{device.department.name}}</p>
+        <p style="text-align: center; font-size: 12px; line-height: 13px; margin-bottom: 0;">
+          Отдел: {{device.department.name}}</p>
       </div>
     </div>
     <tui-input-tag
@@ -87,22 +89,15 @@
 <ng-template #usageHistory>
   <div class="usageHistory">
     <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История использования</h3>
-    <h3 style="font-size: 12px;">20.10.2022</h3>
-    <p style="font-size: 12px;"><span>Никита Зернюков</span><span>15:00-17:00</span></p>
-    <p style="font-size: 12px;"><span>Михаил Абросимов</span><span>13:00-15:00</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-
-    <h3 style="font-size: 12px;">DD.MM.YYYY</h3>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-
-    <h3 style="font-size: 12px;">DD.MM.YYYY</h3>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-    <p style="font-size: 12px;"><span>Name Surname</span><span>HH:MM-HH:MM</span></p>
-
+    <div *ngIf="usageHistory$ | async as items">
+      <div *ngFor="let item of items">
+        <h3 style="font-size: 12px;">{{item.date}}</h3>
+        <p
+          style="font-size: 12px;"
+          *ngFor="let record of item.records"
+        ><span>{{record.userName}}</span><span>{{record.timeFrom}}-{{record.timeTo}}</span></p>
+      </div>
+    </div>
     <div>
       <button
         tuiButton

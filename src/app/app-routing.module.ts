@@ -10,12 +10,6 @@ import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.componen
 import {HomeLayoutComponent} from "./layouts/home-layout/home-layout.component";
 
 const routes: Routes = [
-  // {path: '', redirectTo:'/login', pathMatch:'full'},
-  // {path: 'login', component: LoginPageComponent},
-  // {path: 'devices', component: ListDevicesPageComponent, canActivate: [AuthGuard]},
-  // {path: 'booked', component: BookedDevicesPageComponent, canActivate: [AuthGuard]},
-  // {path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]},
-  // {path: 'profile/edit', component: EditProfilePageComponent}
   {
     path: '', component: LoginLayoutComponent, children: [
       {path: '', redirectTo:'/login', pathMatch: 'full'},
@@ -23,7 +17,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '', component: HomeLayoutComponent, canActivate: [AuthGuard], children: [
+    path: '', component: HomeLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
       {path: 'devices', component: ListDevicesPageComponent},
       {path: 'booked', component: BookedDevicesPageComponent},
       {path: 'profile', component: ProfilePageComponent},
@@ -34,6 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ AuthGuard ]
 })
 export class AppRoutingModule { }

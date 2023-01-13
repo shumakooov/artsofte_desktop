@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Device, User} from "../interfaces";
+import {Device, IsAuth, User} from "../interfaces";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
@@ -17,10 +17,10 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.get<any>(`${environment.API_URL}/user/logout`)
+    return this.http.get<any>(`${environment.API_URL}/user/logout`, { withCredentials: true })
   }
 
-  isAuthenticated(): Observable<boolean>{
-    return this.http.get<boolean>(`${environment.API_URL}/user/authorize`, { withCredentials: true });
+  isAuthenticated(): Observable<IsAuth>{
+    return this.http.get<IsAuth>(`${environment.API_URL}/user/authorize`, { withCredentials: true });
   }
 }

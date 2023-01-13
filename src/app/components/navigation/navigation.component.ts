@@ -1,4 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-navigation',
@@ -20,7 +21,11 @@ export class NavigationComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  onClick(){
+    this.deviceService.search.next('')
+  }
+
+  constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
   }
