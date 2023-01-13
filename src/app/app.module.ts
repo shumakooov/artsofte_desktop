@@ -29,7 +29,8 @@ import {
   TuiInputTimeModule,
   TuiInputPasswordModule,
   TuiDataListWrapperModule,
-  TuiSelectModule
+  TuiSelectModule,
+  TuiCheckboxLabeledModule
 } from '@taiga-ui/kit';
 import {TuiActiveZoneModule} from '@taiga-ui/cdk';
 
@@ -138,7 +139,8 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
     TuiAlertModule,
     TuiDataListWrapperModule,
     TuiSelectModule,
-    TuiLoaderModule
+    TuiLoaderModule,
+    TuiCheckboxLabeledModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

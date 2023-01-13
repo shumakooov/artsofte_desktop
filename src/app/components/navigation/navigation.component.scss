@@ -44,12 +44,18 @@
   border: 2px solid #2E62D9;
 }
 
-p:before {
-  content: "";
-  background-image: url('../../../assets/logo.svg');
-  background-size: cover;
-  display: inline-block;
-  vertical-align: middle;
+.nav_text {
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-right: 5px;
+  &_line {
+    border-bottom: 2px solid #2E62D9;
+    padding-right: 4px;
+  }
+}
+
+.logo {
   width: 70px;
   height: 70px;
   margin-right: 30px;

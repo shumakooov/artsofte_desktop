@@ -1,6 +1,7 @@
 export interface User {
   username: string;
   password: string;
+  rememberme: boolean;
 }
 
 export interface Device {

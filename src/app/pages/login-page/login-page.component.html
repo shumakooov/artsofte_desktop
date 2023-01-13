@@ -5,10 +5,7 @@
     <div style="display: flex; flex-direction: row; margin-bottom: 30px;">
       <img src="../../../assets/logo.svg" alt="Логотип">
       <div style="margin-left: 18px;">
-        <p style="font-size: 16px; line-height: 20px; letter-spacing: 2px; margin-bottom: 0">БРОНЬ УСТРОЙСТВ</p>
-        <p
-          style="font-size: 16px; border-bottom: 2px solid #2E62D9; width: 100px; margin-top: 0; letter-spacing: 2px;">
-          ARTSOFTE</p>
+        <p class="text">БРОНЬ УСТРОЙСТВ <span class="text_line">ARTSOFTE</span></p>
       </div>
     </div>
     <form
@@ -32,6 +29,14 @@
           placeholder="Make it secure!"
         />
       </tui-input-password>
+
+      <tui-checkbox-labeled
+        formControlName="rememberme"
+        size="m"
+        style="margin-left: 15px; margin-top: 15px;"
+      >
+        Запомнить меня
+      </tui-checkbox-labeled>
 
       <button
         tuiButton

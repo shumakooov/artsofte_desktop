@@ -1,5 +1,10 @@
 <nav class="nav" (scroll)="onscroll()" [ngClass]="navbarsticky ? 'nosticky' : 'sticky'">
-  <p>БРОНЬ УСТРОЙСТВ ARTSOFTE</p>
+  <div style="display: flex; flex-direction: row;">
+    <img class="logo" src="../../../assets/logo.svg">
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <p class="nav_text">БРОНЬ УСТРОЙСТВ <span class="nav_text_line">ARTSOFTE</span></p>
+    </div>
+  </div>
   <div>
     <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
       <tui-svg
