@@ -1,7 +1,7 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
-import {BookedDevice, Device, Record, RecordsHistory} from "../interfaces";
+import {BookedDevice, Device, FilterSearch, Record, RecordsHistory} from "../interfaces";
 import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
@@ -9,7 +9,10 @@ import {BehaviorSubject, Observable} from "rxjs";
 })
 export class DeviceService {
   public search = new BehaviorSubject<string>("");
-  public deptValueId = new BehaviorSubject<number>(Number(''))
+  public deptId = new BehaviorSubject<number>(Number(''))
+  public systemId = new BehaviorSubject<number>(Number(''))
+  public typeId = new BehaviorSubject<number>(Number(''))
+  public diagonalRange = new BehaviorSubject<number[]>([])
 
   constructor(private http: HttpClient) {
   }
@@ -34,8 +37,8 @@ export class DeviceService {
     return this.http.post(`${environment.API_URL}/records/cancel/${recordId}`, null ,{ withCredentials: true })
   }
 
-  getFilteredDevices(): Observable<Device[]>{
-    return this.http.get<Device[]>(`${environment.API_URL}/filter/search`,{ withCredentials: true })
+  getFilteredDevices(filter: FilterSearch): Observable<Device[]>{
+    return this.http.post<Device[]>(`${environment.API_URL}/filter/search`, filter, { withCredentials: true })
   }
 
   getUsageHistoryById(deviceId: number): Observable<RecordsHistory[]>{

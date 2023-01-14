@@ -36,6 +36,14 @@ export class ListDevicesPageComponent implements OnInit {
   }
 
   public getFilteredDevices() {
-    this.devices$ = this.deviceService.getFilteredDevices()
+    const filter = {
+      type: this.deviceService.typeId.value === 0? null : this.deviceService.typeId.value,
+      os: this.deviceService.systemId.value === 0? null : this.deviceService.systemId.value,
+      department: this.deviceService.deptId.value === 0? null : this.deviceService.deptId.value,
+      tags: null,
+      minlen: this.deviceService.diagonalRange.value[0],
+      maxlen: this.deviceService.diagonalRange.value[1]
+    }
+      this.devices$ = this.deviceService.getFilteredDevices(filter)
   }
 }

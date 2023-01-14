@@ -34,6 +34,7 @@
         *ngFor="let dept of depts"
         tuiOption
         [value]="dept.id"
+        (click)="onClick.emit(dept.id)"
       >
         {{ dept.name }}
       </button>

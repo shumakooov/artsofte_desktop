@@ -38,24 +38,20 @@
 
 
 
-<tui-select
+<tui-multi-select
+  tuiTextfieldSize="s"
+  *tuiLet="items$ | async as items"
   class="b-form"
-  [valueContent]="content"
-  [(ngModel)]="value"
+  [formControl]="control"
+  [tuiTextfieldLabelOutside]="true"
+  [stringify]="(stringify$ | async)!"
+  (searchChange)="onSearch($event)"
 >
   Тег
-  <ng-template tuiDataList>
-    <tui-data-list>
-      <tui-opt-group>
-        <tui-opt-group tuiMultiSelectGroup>
-          <button
-            *ngFor="let tag of tags"
-            tuiOption
-            [value]="tag"
-          >
-          </button>
-        </tui-opt-group>
-      </tui-opt-group>
-    </tui-data-list>
-  </ng-template>
-</tui-select>
+  <tui-data-list-wrapper
+    *tuiDataList
+    tuiMultiSelectGroup
+    [items]="items"
+    [itemContent]="(stringify$ | async)!"
+  ></tui-data-list-wrapper>
+</tui-multi-select>

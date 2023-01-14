@@ -18,13 +18,14 @@
 
   <div>
     <tui-island class="island">
-      <p style="margin-top: 0; margin-bottom: 11px;">Размер экрана, дюймов</p>
+      <p style="margin-top: 0; margin-bottom: 11px;">Размер экрана</p>
       <tui-range
         size="m"
         [min]="min"
         [max]="max"
         [step]="step"
         [(ngModel)]="rangeValue"
+        (ngModelChange)="handleDiagonal()"
       ></tui-range>
       <p style="margin-bottom: 0; margin-top: 11px;">
         <output for="m-size-range">
@@ -36,36 +37,36 @@
   </div>
 
   <div style="margin-bottom: 15px; justify-items: center;">
-    <app-dropdown-system></app-dropdown-system>
-    <app-dropdown-type></app-dropdown-type>
-    <app-dropdown-department></app-dropdown-department>
+    <app-dropdown-system (onClick)="handleSystem($event)"></app-dropdown-system>
+    <app-dropdown-type (onClick)="handleType($event)"></app-dropdown-type>
+    <app-dropdown-department (onClick)="handleDept($event)"></app-dropdown-department>
     <app-dropdown-tag></app-dropdown-tag>
   </div>
 
-  <div>
-    <form
-      class="b-form"
-      style="margin-bottom: 15px; width: 100%"
-      [tuiTextfieldCleaner]="true"
-    >
-      <tui-input-date-range
-        tuiUnfinishedValidator="Finish filling the field"
-        [min]="minDate"
-        [max]="maxDate"
-        [(ngModel)]="date"
-      >
-        Choose dates
-        <input
-          tuiTextfield
-          placeholder="From - To"
-        />
-      </tui-input-date-range>
-      <tui-error
-        formControlName="testValue"
-        [error]="[] | tuiFieldError | async"
-      ></tui-error>
-    </form>
-  </div>
+<!--  <div>-->
+<!--    <form-->
+<!--      class="b-form"-->
+<!--      style="margin-bottom: 15px; width: 100%"-->
+<!--      [tuiTextfieldCleaner]="true"-->
+<!--    >-->
+<!--      <tui-input-date-range-->
+<!--        tuiUnfinishedValidator="Finish filling the field"-->
+<!--        [min]="minDate"-->
+<!--        [max]="maxDate"-->
+<!--        [(ngModel)]="date"-->
+<!--      >-->
+<!--        Choose dates-->
+<!--        <input-->
+<!--          tuiTextfield-->
+<!--          placeholder="From - To"-->
+<!--        />-->
+<!--      </tui-input-date-range>-->
+<!--      <tui-error-->
+<!--        formControlName="testValue"-->
+<!--        [error]="[] | tuiFieldError | async"-->
+<!--      ></tui-error>-->
+<!--    </form>-->
+<!--  </div>-->
 
   <div style="margin-bottom: 15px;">
     <app-dropdown-sort></app-dropdown-sort>
@@ -78,6 +79,7 @@
     appearance="green_outline"
     style="width: 100%;"
     size="m"
+    (click)="doSearch()"
   >
     Поиск
   </button>

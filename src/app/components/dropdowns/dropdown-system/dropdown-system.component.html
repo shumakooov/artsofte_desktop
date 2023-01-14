@@ -1,16 +1,31 @@
 <form style="margin-bottom: 15px;">
   <tui-select
+    *tuiLet="systems"
+    class="b-form"
+    [tuiTextfieldLabelOutside]="true"
+    [valueContent]="systems ? stringify(systems) : loading"
+    [(ngModel)]="value"
     tuiTextfieldSize="s"
-    [formControl]="value"
   >
     Система
     <input
       tuiTextfield
       placeholder="Выберите систему"
     />
-    <tui-data-list-wrapper
-      *tuiDataList
-      [items]="filters"
-    ></tui-data-list-wrapper>
+    <ng-template tuiDataList>
+      <tui-data-list *ngIf="systems; else loading">
+        <button
+          *ngFor="let system of systems"
+          tuiOption
+          [value]="system.id"
+          (click)="onClick.emit(system.id)"
+        >
+          {{ system.name }}
+        </button>
+      </tui-data-list>
+    </ng-template>
+    <ng-template #loading>
+      <tui-loader class="tui-space_vertical-3 loader"></tui-loader>
+    </ng-template>
   </tui-select>
 </form>

@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FilterService} from "../../../services/filter.service";
 import {TuiContextWithImplicit, tuiPure, TuiStringHandler} from "@taiga-ui/cdk";
-import {DeviceService} from "../../../services/device.service";
 
 @Component({
   selector: 'app-dropdown-department',
@@ -9,24 +8,22 @@ import {DeviceService} from "../../../services/device.service";
   styleUrls: ['./dropdown-department.component.scss']
 })
 export class DropdownDepartmentComponent implements OnInit {
+  @Output() onClick = new EventEmitter()
+  value: null;
+  depts: [{ id: number | null; name: string }]
 
-  value: number;
-
-  depts: [{ id: number; name: string }]
-
-  constructor(private filterService: FilterService,
-              private deviceService: DeviceService) {
-  }
+  constructor(private filterService: FilterService) {}
 
   ngOnInit(): void {
     this.filterService.getFilters().subscribe(filters => {
       this.depts = filters.departments
+      this.depts.push({id: null, name: "Нет"})
     })
   }
 
   @tuiPure
   stringify(
-    items: readonly [{ id: number; name: string }],
+    items: readonly [{ id: number | null; name: string }],
   ): TuiStringHandler<TuiContextWithImplicit<number>> {
     const map = new Map(items.map(({id, name}) => [id, name] as [number, string]));
 

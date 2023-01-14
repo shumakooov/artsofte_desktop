@@ -13,7 +13,7 @@ import {DeviceService} from "../../../services/device.service";
   templateUrl: './modal-device-card.component.html',
   styleUrls: ['./modal-device-card.component.scss']
 })
-export class ModalDeviceCardComponent implements OnInit{
+export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
   get data(): number {
     return this.context.data;
   }
@@ -56,6 +56,6 @@ export class ModalDeviceCardComponent implements OnInit{
     this.valueCalendar = day;
   }
 
-  valueTag = [`Xiaomi`, `Android`, `6,67"`, `MIUI`];
+  valueTag = ['tablet', 'Android', 'with yandex'];
   readonly control = new FormControl([]);
 }

@@ -41,7 +41,8 @@ export interface Filter {
   types: [{ id: number, name: string }],
   systems: [{ id: number, name: string }],
   departments: [{ id: number, name: string }],
-  tags: [{ id: number, name: string }]
+  tags: [{ id: number, name: string }],
+  maxLen: number
 }
 
 export interface IsAuth {
@@ -57,4 +58,18 @@ export interface RecordsHistory {
       timeTo: string
     }
   ]
+}
+
+export interface FilterSearch {
+  type: number | null,
+  os: number | null,
+  department: number | null,
+  tags: [number] | null,
+  minlen: number | null,
+  maxlen: number | null
+}
+
+export interface Tag{
+  id: number,
+  name: string
 }

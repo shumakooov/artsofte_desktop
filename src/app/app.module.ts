@@ -12,7 +12,8 @@ import {
   TuiHostedDropdownModule,
   TuiScrollbarModule,
   TuiCalendarModule,
-  TuiAlertModule, TuiLoaderModule
+  TuiAlertModule,
+  TuiLoaderModule,
 } from "@taiga-ui/core";
 import {
   TuiInputModule,
@@ -30,9 +31,9 @@ import {
   TuiInputPasswordModule,
   TuiDataListWrapperModule,
   TuiSelectModule,
-  TuiCheckboxLabeledModule
+  TuiCheckboxLabeledModule,
 } from '@taiga-ui/kit';
-import {TuiActiveZoneModule} from '@taiga-ui/cdk';
+import {TuiActiveZoneModule, TuiLetModule} from '@taiga-ui/cdk';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgModule} from '@angular/core';
@@ -140,9 +141,10 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
     TuiDataListWrapperModule,
     TuiSelectModule,
     TuiLoaderModule,
-    TuiCheckboxLabeledModule
+    TuiCheckboxLabeledModule,
+    TuiLetModule
   ],
-  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
+  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, ListDevicesPageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
