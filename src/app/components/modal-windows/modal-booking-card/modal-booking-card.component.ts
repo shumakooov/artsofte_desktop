@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 import {Device, Record} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
 import {Router} from "@angular/router";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-modal-booking-card',
@@ -16,6 +17,7 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalBookingCardComponent implements OnInit{
+  API_URL = environment.API_URL
   get data(): number {
     return this.context.data;
   }

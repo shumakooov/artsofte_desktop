@@ -42,7 +42,8 @@ export class ListDevicesPageComponent implements OnInit {
       department: this.deviceService.deptId.value === 0? null : this.deviceService.deptId.value,
       tags: null,
       minlen: this.deviceService.diagonalRange.value[0],
-      maxlen: this.deviceService.diagonalRange.value[1]
+      maxlen: this.deviceService.diagonalRange.value[1],
+      sortType: this.deviceService.sort.value === ""? null: this.deviceService.sort.value
     }
       this.devices$ = this.deviceService.getFilteredDevices(filter)
   }

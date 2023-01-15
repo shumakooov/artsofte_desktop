@@ -2,7 +2,7 @@
   <div *ngIf="profileInfo$ | async as profileInfo">
     <div class="container">
       <img class="container_img"
-           src="https://www.meme-arsenal.com/memes/8e750b5ffb6a6d58cdb01341726ab3af.jpg">
+           [src]="API_URL + profileInfo.image">
     </div>
     <div class="container_id">
       <p style=" color: #2E62D9; margin-right: 15px; font-size: 15px;">ID</p>

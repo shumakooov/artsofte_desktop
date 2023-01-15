@@ -1,8 +1,8 @@
 <div class="item">
   <div class="showBooking" (click)="showDeviceCard()">
-    <img [src]="imgUrl"
+    <img [src]="API_URL + imgUrl"
          class="item_img"
-         alt="Изображение устройства"/>
+         />
     <p style="font-weight: 700; font-size: 12px; line-height: 16px;">{{deviceName}}</p>
     <p style="line-height: 14px; font-size: 10px;">OS: {{os}}</p>
     <p style="line-height: 14px; font-size: 10px;">Диагональ: {{diagonal}}</p>

@@ -18,7 +18,9 @@ export interface Profile {
   firstname: string,
   secondname: string,
   connectLink: string,
-  // departmentId: number,
+  username: string,
+  status: string,
+  image: string
 }
 
 export interface Record {
@@ -66,10 +68,16 @@ export interface FilterSearch {
   department: number | null,
   tags: [number] | null,
   minlen: number | null,
-  maxlen: number | null
+  maxlen: number | null,
+  sortType: string | null
 }
 
 export interface Tag{
   id: number,
   name: string
+}
+
+export interface ReturnDevice {
+  recordId: number,
+  departmentId: number
 }

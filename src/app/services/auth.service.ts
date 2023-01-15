@@ -13,14 +13,14 @@ export class AuthService {
   }
 
   login(user: User) {
-    return this.http.post<any>(`${environment.API_URL}/user/login`, user, { withCredentials: true })
+    return this.http.post<any>(`${environment.API_URL}/api/user/login`, user, { withCredentials: true })
   }
 
   logout() {
-    return this.http.get<any>(`${environment.API_URL}/user/logout`, { withCredentials: true })
+    return this.http.get<any>(`${environment.API_URL}/api/user/logout`, { withCredentials: true })
   }
 
   isAuthenticated(): Observable<IsAuth>{
-    return this.http.get<IsAuth>(`${environment.API_URL}/user/authorize`, { withCredentials: true });
+    return this.http.get<IsAuth>(`${environment.API_URL}/api/user/authorize`, { withCredentials: true });
   }
 }

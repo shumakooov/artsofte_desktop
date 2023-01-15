@@ -5,6 +5,7 @@ import {ModalReturnDeviceComponent} from "../modal-windows/modal-return-device/m
 import {ModalCancelReserveComponent} from "../modal-windows/modal-cancel-reserve/modal-cancel-reserve.component";
 import {ModalDeviceProblemComponent} from "../modal-windows/modal-device-problem/modal-device-problem.component";
 import {Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-booked-device',
@@ -12,6 +13,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./booked-device.component.scss']
 })
 export class BookedDeviceComponent implements AfterContentInit {
+  API_URL = environment.API_URL
   @Input() imgUrl: string;
   @Input() deviceName: string;
   @Input() timeFrom: string;

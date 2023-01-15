@@ -12,18 +12,18 @@ export class FilterService {
   }
 
   getFilters(): Observable<Filter> {
-    return this.http.get<Filter>(`${environment.API_URL}/filter`, {withCredentials: true})
+    return this.http.get<Filter>(`${environment.API_URL}/api/filter`, {withCredentials: true})
   }
 
   getTagsByDeviceId(deviceId: number): Observable<Tag[]> {
-    return this.http.get<Tag[]>(`${environment.API_URL}/tag/${deviceId}`, {withCredentials: true})
+    return this.http.get<Tag[]>(`${environment.API_URL}/api/tag/${deviceId}`, {withCredentials: true})
   }
 
   setTagToDevice(deviceId: number, name: string) {
-    return this.http.put(`${environment.API_URL}/tag/${deviceId}/${name}`,null, {withCredentials: true})
+    return this.http.put(`${environment.API_URL}/api/tag/${deviceId}/${name}`,null, {withCredentials: true})
   }
 
   deleteTagFromDevice(deviceId: number, tagId: number) {
-    return this.http.delete(`${environment.API_URL}/tag/delete/${deviceId}/${tagId}`, {withCredentials: true})
+    return this.http.delete(`${environment.API_URL}/api/tag/delete/${deviceId}/${tagId}`, {withCredentials: true})
   }
 }

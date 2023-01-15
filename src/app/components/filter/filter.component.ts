@@ -64,6 +64,10 @@ export class FilterComponent implements OnInit {
     this.deviceService.diagonalRange.next(this.rangeValue)
   }
 
+  handleSort(sort: string){
+    this.deviceService.sort.next(sort)
+  }
+
   doSearch() {
     this.listDevicesComp.getFilteredDevices()
   }

@@ -1,6 +1,6 @@
 <div class="container">
   <p style="color: #2E62D9; font-size: 15px; margin-top: 0; text-align: center;">Выберите отдел, куда отнесете<br>устройство</p>
-  <app-dropdown-department style=" width: 100%"></app-dropdown-department>
+  <app-dropdown-department  (onClick)="handleDept($event)" style=" width: 100%"></app-dropdown-department>
   <div style="display: grid; grid-template-columns: 1fr 1fr; justify-items: center; column-gap: 10px;">
     <button
       tuiButton
@@ -9,7 +9,7 @@
       appearance="green_outline"
       size="m"
       style="font-size: 15px; width: 130px;"
-      (click)="showReturnDevice(returnDevice)"
+      (click)="showReturnDevice(returnDevice); doReturnDevice(); closeReturnDevice()"
     >
       Подтвердить
     </button>
@@ -38,7 +38,7 @@
       appearance="green_outline"
       size="m"
       style="font-size: 15px; width: 40%;"
-      (click)="observer.complete()"
+      (click)="observer.complete(); reloadLocation()"
     >
       Ок
     </button>

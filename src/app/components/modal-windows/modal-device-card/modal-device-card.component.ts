@@ -7,6 +7,7 @@ import {ModalBookingCardComponent} from "../modal-booking-card/modal-booking-car
 import {Observable} from "rxjs";
 import {Device, RecordsHistory} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-modal-device-card',
@@ -14,6 +15,7 @@ import {DeviceService} from "../../../services/device.service";
   styleUrls: ['./modal-device-card.component.scss']
 })
 export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
+  API_URL = environment.API_URL
   get data(): number {
     return this.context.data;
   }

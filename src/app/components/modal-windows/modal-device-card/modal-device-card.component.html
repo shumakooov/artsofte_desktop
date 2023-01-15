@@ -3,7 +3,7 @@
     <div *ngIf="device$ | async as device">
       <div class="container">
         <img class="container_img"
-             [src]="device.image">
+             [src]="API_URL + device.image">
       </div>
       <div class="container_spec">
         <p

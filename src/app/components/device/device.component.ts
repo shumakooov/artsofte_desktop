@@ -4,6 +4,7 @@ import {PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
 import {ModalDeviceCardComponent} from "../modal-windows/modal-device-card/modal-device-card.component";
 import {Observable} from "rxjs";
 import {ModalBookingCardComponent} from "../modal-windows/modal-booking-card/modal-booking-card.component";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-device',
@@ -12,6 +13,7 @@ import {ModalBookingCardComponent} from "../modal-windows/modal-booking-card/mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DeviceComponent implements AfterContentInit{
+  API_URL = environment.API_URL
   @Input() imgUrl: string;
   @Input() deviceName: string;
   @Input() os: string;
