@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit {
   max: number;
   readonly min = 0;
   rangeValue = [0, 0];
-  readonly step = 0.5;
+  readonly step = 0.1;
 
   //Календарь
   date = null;

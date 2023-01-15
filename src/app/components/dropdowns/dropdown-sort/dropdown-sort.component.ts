@@ -13,8 +13,8 @@ export class DropdownSortComponent {
   sorts = [
     { id: "name", name: "По названию" },
     { id: "namereverse", name: "По названию (в обратном порядке)" },
-    { id: "diagonalmin", name: "По диагонали (по убыванию)" },
-    { id: "diagonalmax", name: "По диагонали (по возрастанию)" },
+    { id: "diagonalmin", name: "По диагонали (по возрастанию)" },
+    { id: "diagonalmax", name: "По диагонали (по убыванию)" },
     { id: "datenew", name: "По дате (сначала новые)" },
     { id: "dateold", name: "По дате (сначала старые)" },
   ]

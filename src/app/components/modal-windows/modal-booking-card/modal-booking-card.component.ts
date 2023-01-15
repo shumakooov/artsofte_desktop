@@ -71,4 +71,5 @@ export class ModalBookingCardComponent implements OnInit{
 
   valueTag = [`Xiaomi`, `Android`, `6,67"`, `MIUI`];
   readonly control = new FormControl([]);
+
 }

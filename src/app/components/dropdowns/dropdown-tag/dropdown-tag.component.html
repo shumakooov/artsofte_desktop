@@ -1,57 +1,14 @@
-<!--<tui-hosted-dropdown-->
-<!--  #dropdown-->
-<!--  [tuiDropdownMaxHeight]="500"-->
-<!--  [content]="content"-->
-<!--  style="width: 100%;"-->
-<!--&gt;-->
-<!--  <button-->
-<!--    style="width: 100%;"-->
-<!--    tuiButton-->
-<!--    size="s"-->
-<!--    type="button"-->
-<!--    appearance="whiteblock"-->
-<!--    [iconRight]="arrow"-->
-<!--    [pseudoHover]="dropdown.open || null"-->
-<!--  >Тег</button>-->
-<!--</tui-hosted-dropdown>-->
-<!--<ng-template #content>-->
-<!--  <tui-data-list-->
-<!--    style="width: 12rem"-->
-<!--    size="m"-->
-<!--  >-->
-<!--    <tui-opt-group-->
-<!--      tuiMultiSelectGroup-->
-<!--      [(ngModel)]="value"-->
-<!--    >-->
-<!--      <tui-opt-group>-->
-<!--        <button-->
-<!--          *ngFor="let tag of tags"-->
-<!--          tuiOption-->
-<!--          [value]="tag"-->
-<!--        >-->
-<!--          {{ tag }}-->
-<!--        </button>-->
-<!--      </tui-opt-group>-->
-<!--    </tui-opt-group>-->
-<!--  </tui-data-list>-->
-<!--</ng-template>-->
-
-
-
 <tui-multi-select
+  placeholder="Ignored text"
   tuiTextfieldSize="s"
-  *tuiLet="items$ | async as items"
-  class="b-form"
   [formControl]="control"
   [tuiTextfieldLabelOutside]="true"
-  [stringify]="(stringify$ | async)!"
-  (searchChange)="onSearch($event)"
+  [editable]="false"
 >
   Тег
   <tui-data-list-wrapper
     *tuiDataList
     tuiMultiSelectGroup
-    [items]="items"
-    [itemContent]="(stringify$ | async)!"
+    [items]="tags"
   ></tui-data-list-wrapper>
 </tui-multi-select>

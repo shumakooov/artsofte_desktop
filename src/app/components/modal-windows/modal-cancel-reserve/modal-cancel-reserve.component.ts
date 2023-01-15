@@ -24,12 +24,14 @@ export class ModalCancelReserveComponent {
   }
 
   cancelBookedDevice() {
-    this.deviceService.cancelBookedDeviceByRecordId(this.data).subscribe(()=>{
-      location.reload()
-    })
+    this.deviceService.cancelBookedDeviceByRecordId(this.data).subscribe()
   }
 
   closeCanselReserve() {
     this.context.completeWith(1)
+  }
+
+  reloadLocation() {
+    location.reload()
   }
 }
