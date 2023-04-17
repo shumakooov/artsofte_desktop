@@ -1,0 +1,46 @@
+<div class="filter">
+  <div class="wrapper">
+    <div>
+      <tui-island class="island">
+        <p style="margin-top: 0; margin-bottom: 11px;">Размер экрана</p>
+        <tui-range
+          size="m"
+          [min]="min"
+          [max]="max"
+          [step]="step"
+          [(ngModel)]="rangeValue"
+          (ngModelChange)="handleDiagonal()"
+        ></tui-range>
+        <p style="margin-bottom: 0; margin-top: 11px;">
+          <output for="m-size-range">
+            <code>{{ rangeValue | json }}</code>
+          </output>
+          дюймов
+        </p>
+      </tui-island>
+    </div>
+
+    <div style="margin-bottom: 15px; justify-items: center;">
+      <app-dropdown-system (onClick)="handleSystem($event)"></app-dropdown-system>
+      <app-dropdown-type (onClick)="handleType($event)"></app-dropdown-type>
+      <app-dropdown-department (onClick)="handleDept($event)"></app-dropdown-department>
+      <app-dropdown-tag></app-dropdown-tag>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <app-dropdown-sort (onClick)="handleSort($event)"></app-dropdown-sort>
+    </div>
+
+    <button
+      tuiButton
+      type="button"
+      class="button"
+      appearance="green_outline"
+      style="width: 100%;"
+      size="m"
+      (click)="doSearch()"
+    >
+      Поиск
+    </button>
+  </div>
+</div>

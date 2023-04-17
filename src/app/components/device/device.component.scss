@@ -1,6 +1,8 @@
 .item{
-  width: 10.5vw;
-  min-width: 130px;
+  //width: 10.5vw;
+  //min-width: 140px;
+  //max-width: 170px;
+  width: 100%;
   padding-bottom: 15px;
   font-size: 10px;
   color: #434854;
@@ -8,20 +10,21 @@
   border-radius: 20px;
   background: #FFFFFF;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.12));
-  margin-bottom: 20px;
 }
 
 .item_img{
-  width: 80%;
-  height: 125px;
+  width: 100%;
+  height: 110px;
   margin-top: 15px;
   object-fit: contain;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .button{
-  width: 120px;
-  height: 10px;
   font-size: 10px;
+  height: 32px;
+  width: 80%;
 }
 
 .showBooking{

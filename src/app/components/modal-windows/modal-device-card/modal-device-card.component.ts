@@ -58,6 +58,6 @@ export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
     this.valueCalendar = day;
   }
 
-  valueTag = ['tablet', 'Android', 'with yandex'];
+  valueTag = [`Android`, `6,67"`, `MIUI`, `MI Браузер`];
   readonly control = new FormControl([]);
 }

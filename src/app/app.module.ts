@@ -31,7 +31,7 @@ import {
   TuiInputPasswordModule,
   TuiDataListWrapperModule,
   TuiSelectModule,
-  TuiCheckboxLabeledModule,
+  TuiCheckboxLabeledModule, TuiAccordionModule, TuiMarkerIconModule,
 } from '@taiga-ui/kit';
 import {TuiActiveZoneModule, TuiLetModule} from '@taiga-ui/cdk';
 
@@ -71,6 +71,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import {FilterBookedPipe} from "./pipes/filterBooked.pipe";
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
+import { ModalFilterComponent } from './components/modal-windows/modal-filter/modal-filter.component';
+import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
 
 
 @NgModule({
@@ -103,7 +106,8 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
     FilterPipe,
     FilterBookedPipe,
     LoginLayoutComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
+    ModalFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -142,7 +146,11 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
     TuiSelectModule,
     TuiLoaderModule,
     TuiCheckboxLabeledModule,
-    TuiLetModule
+    TuiLetModule,
+    TuiAccordionModule,
+    TuiSidebarModule,
+    TuiMarkerIconModule,
+    TuiMoneyModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, ListDevicesPageComponent],
   bootstrap: [AppComponent]

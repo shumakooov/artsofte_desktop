@@ -12,16 +12,6 @@ import {Observable} from "rxjs";
 export class ListDevicesPageComponent implements OnInit {
   searchKey: string = "";
 
-  filtersticky: boolean = false;
-
-  @HostListener('window:scroll', ['$event']) onscroll() {
-    if (window.scrollY > 50) {
-      this.filtersticky = true;
-    } else {
-      this.filtersticky = false;
-    }
-  }
-
   devices$: Observable<Device[]>
 
   constructor(private deviceService: DeviceService) {

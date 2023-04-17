@@ -1,6 +1,8 @@
 .filter{
-  width: 18.5vw;
-  min-width: 220px;
+  //max-width: 290px;
+  //min-width: 196px;
+  //width: 25vw;
+  width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -8,7 +10,10 @@
   padding: 25px;
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
-  position: fixed;
+  box-sizing: border-box;
+  top: 120px;
+  position: sticky;
+  position: -webkit-sticky;
 }
 
 .island{

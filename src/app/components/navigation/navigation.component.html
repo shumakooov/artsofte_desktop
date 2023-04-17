@@ -1,28 +1,105 @@
-<nav class="nav" (scroll)="onscroll()" [ngClass]="navbarsticky ? 'nosticky' : 'sticky'">
-  <div style="display: flex; flex-direction: row;">
-    <img class="logo" src="../../../assets/logo.svg">
-    <div style="display: flex; flex-direction: row; align-items: center">
-      <p class="nav_text">БРОНЬ УСТРОЙСТВ <span class="nav_text_line">ARTSOFTE</span></p>
+<nav class="nav">
+  <div class="wrapper">
+    <div class="logoAndText">
+      <img class="logo" src="../../../assets/logo.svg" alt="Логотип">
     </div>
-  </div>
-  <div>
-    <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
-      <tui-svg
-        src="tuiIconCheckCircleLarge"
-        class="icon"
-      ></tui-svg>
-    </a>
-    <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick()">
-      <tui-svg
-        src="tuiIconSearchLarge"
-        class="icon"
-      ></tui-svg>
-    </a>
-    <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick()">
-      <tui-svg
-        src="tuiIconUser"
-        class="icon"
-      ></tui-svg>
-    </a>
+    <button
+      tuiIconButton
+      type="button"
+      class="button_filter"
+      icon="tuiIconFilterLarge"
+      appearance="flat"
+      size="m"
+      (click)="showFilter()"
+    >
+    </button>
+    <div class="search">
+      <form style="width: 100%">
+        <tui-input
+          [tuiTextfieldLabelOutside]="true"
+          tuiTextfieldSize="m"
+          class="search_big"
+        >
+          Начните поиск здесь...
+          <input
+            tuiTextfield
+            type="text"
+            class="search_input"
+            [(ngModel)]="searchTerm"
+            (keyup)="search($event)"
+          />
+        </tui-input>
+        <tui-input
+          [tuiTextfieldLabelOutside]="true"
+          tuiTextfieldSize="s"
+          class="search_small"
+        >
+          Начните поиск здесь...
+          <input
+            tuiTextfield
+            type="text"
+            class="search_input"
+            [(ngModel)]="searchTerm"
+            (keyup)="search($event)"
+          />
+        </tui-input>
+      </form>
+    </div>
+    <div class="links">
+      <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
+        <tui-svg
+          src="tuiIconCheckCircleLarge"
+          class="icon"
+        ></tui-svg>
+      </a>
+      <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick()">
+        <tui-svg
+          src="tuiIconSearchLarge"
+          class="icon"
+        ></tui-svg>
+      </a>
+      <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick()">
+        <tui-svg
+          src="tuiIconUser"
+          class="icon"
+        ></tui-svg>
+      </a>
+    </div>
+
+    <button
+      tuiIconButton
+      type="button"
+      class="sidebar"
+      icon="tuiIconMenuLarge"
+      appearance="flat"
+      (click)="toggle(true)"
+      (tuiActiveZoneChange)="toggle($event)"
+    >
+      <div *tuiSidebar="open; direction: 'right'">
+        <div>
+          <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
+            <tui-svg
+              src="tuiIconCheckCircleLarge"
+              class="icon"
+            ></tui-svg>
+            Забронированные устройства
+          </a>
+          <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick()">
+            <tui-svg
+              src="tuiIconSearchLarge"
+              class="icon"
+            ></tui-svg>
+            Все устройства
+          </a>
+          <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick()">
+            <tui-svg
+              src="tuiIconUser"
+              class="icon"
+            ></tui-svg>
+            Профиль
+          </a>
+        </div>
+      </div>
+    </button>
   </div>
 </nav>

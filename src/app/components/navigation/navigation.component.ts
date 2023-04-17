@@ -1,33 +1,51 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostListener, Inject, Injector, OnInit} from '@angular/core';
 import {DeviceService} from "../../services/device.service";
+import {TuiDialogService} from "@taiga-ui/core";
+import {PolymorpheusComponent} from "@tinkoff/ng-polymorpheus";
+import {Observable} from "rxjs";
+import {ModalFilterComponent} from "../modal-windows/modal-filter/modal-filter.component";
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent implements OnInit {
+  public searchTerm: string;
 
-  navbarsticky:boolean = false;
+  // sidebar
+  open = false;
 
-  @HostListener('window:scroll', ['$event']) onscroll(){
-    if(window.scrollY > 50)
-    {
-      this.navbarsticky = true;
-    }
-    else
-    {
-      this.navbarsticky = false;
-    }
+  toggle(open: boolean): void {
+    this.open = open;
   }
+
 
   onClick(){
     this.deviceService.search.next('')
   }
 
-  constructor(private deviceService: DeviceService) { }
-
-  ngOnInit(): void {
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.deviceService.search.next(this.searchTerm);
   }
 
+  constructor(private deviceService: DeviceService,
+              @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
+              @Inject(Injector) private readonly injector: Injector) { }
+
+  dialogFilter: Observable<number>
+  ngOnInit(): void {
+    this.dialogFilter = this.dialogService.open<number>(
+      new PolymorpheusComponent(ModalFilterComponent, this.injector),
+      {
+        size: "auto"
+      }
+    );
+  }
+
+  showFilter(): void {
+    this.dialogFilter.subscribe();
+  }
 }
