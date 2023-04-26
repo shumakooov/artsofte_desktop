@@ -12,7 +12,7 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./device.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DeviceComponent implements AfterContentInit{
+export class DeviceComponent implements AfterContentInit {
   API_URL = environment.API_URL
   @Input() imgUrl: string;
   @Input() deviceName: string;
@@ -21,26 +21,50 @@ export class DeviceComponent implements AfterContentInit{
   @Input() department: string;
   @Input() id: number;
 
+  mediaQuery: any = window.matchMedia("(max-width:480px)")
+
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
-              @Inject(Injector) private readonly injector: Injector) { }
+              @Inject(Injector) private readonly injector: Injector) {
+  }
 
   dialogBookingCard: Observable<number>
   dialogDeviceCard: Observable<number>
+
   ngAfterContentInit() {
-    this.dialogDeviceCard = this.dialogService.open<number>(
-      new PolymorpheusComponent(ModalDeviceCardComponent, this.injector),
-      {
-        data: this.id,
-        size: "auto"
-      }
-    );
-    this.dialogBookingCard = this.dialogService.open<number>(
-      new PolymorpheusComponent(ModalBookingCardComponent, this.injector),
-      {
-        data: this.id,
-        size: "auto"
-      }
-    );
+    if (this.mediaQuery.matches) {
+      this.dialogDeviceCard = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalDeviceCardComponent, this.injector),
+        {
+          data: this.id,
+          size: "fullscreen"
+        }
+      );
+    } else {
+      this.dialogDeviceCard = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalDeviceCardComponent, this.injector),
+        {
+          data: this.id,
+          size: "auto"
+        }
+      );
+    }
+    if (this.mediaQuery.matches) {
+      this.dialogBookingCard = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalBookingCardComponent, this.injector),
+        {
+          data: this.id,
+          size: "fullscreen"
+        }
+      );
+    } else {
+      this.dialogBookingCard = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalBookingCardComponent, this.injector),
+        {
+          data: this.id,
+          size: "auto"
+        }
+      );
+    }
   }
 
   showDeviceCard(): void {
@@ -48,6 +72,6 @@ export class DeviceComponent implements AfterContentInit{
   }
 
   showBookingCard(): void {
-      this.dialogBookingCard.subscribe();
-    }
+    this.dialogBookingCard.subscribe();
+  }
 }

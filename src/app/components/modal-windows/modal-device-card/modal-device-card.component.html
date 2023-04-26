@@ -1,18 +1,8 @@
-<div class="wrapper">
-  <div style="width: 270px;">
-    <div *ngIf="device$ | async as device">
-      <div class="container">
-        <img class="container_img"
-             [src]="API_URL + device.image">
-      </div>
-      <div class="container_spec">
-        <p
-          style="text-align: center; font-size: 15px; font-weight: 700; margin: 0; line-height: 20px;">{{device.name}}</p>
-        <p style="text-align: center; font-size: 12px; line-height: 13px;">OS: {{device.os}}</p>
-        <p style="text-align: center; font-size: 12px; line-height: 13px;">Диагональ: {{device.diagonal}}</p>
-        <p style="text-align: center; font-size: 12px; line-height: 13px; margin-bottom: 0;">
-          Отдел: {{device.department.name}}</p>
-      </div>
+<div class="card">
+  <div class="wrapper" *ngIf="device$ | async as device">
+    <div class="container_img">
+      <img class="img"
+           [src]="API_URL + device.image">
     </div>
     <tui-input-tag
       tuiTextfieldSize="m"
@@ -20,50 +10,31 @@
       [(ngModel)]="valueTag"
       [tuiTextfieldLabelOutside]="true"
       [formControl]="control"
-      style="width: 270px;"
+      class="tags"
     >
     </tui-input-tag>
-  </div>
-  <tui-scrollbar>
-    <div class="characteristics">
-      <div style="width: 260px;">
-        <h2 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">Характеристики</h2>
-        <h3>Экран</h3>
-        <p><span>Диагональ экрана (дюйм)</span><span>6.67"</span></p>
-        <p><span>Разрешение экрана</span><span>2400x1080</span></p>
-        <p><span>Плотность пикселей</span><span>395 ppi</span></p>
-        <p><span>Технология изготовления экрана</span><span>IPS</span></p>
-        <p><span>Соотношение сторон</span><span>20:9</span></p>
 
-        <h3>Система</h3>
-        <p><span>Версия ОС</span><span>Android 11</span></p>
-        <p><span>Поддержка Google Mobile Services</span><span>есть</span></p>
-        <p><span>Производитель процессора</span><span>Qualcomm</span></p>
-        <p><span>Модель процессора</span><span>Snapdragon 860</span></p>
-        <p><span>Количество ядер</span><span>8</span></p>
-        <p><span>Частота работы процессора</span><span>2.96 ГГц</span></p>
-        <p><span>Конфигурация процессора</span>
-          <span>3x Kryo 485 (Cortex-A76) 2.42 ГГц, 4x Kryo 485 (Cortex-A55) 1.8 ГГц, 1x Kryo 485 (Cortex-A76) 2.96 ГГц</span>
-        </p>
-        <p><span>Техпроцесс</span><span>7 нм</span></p>
-        <p><span>Графический ускоритель</span><span>Adreno 640</span></p>
+    <div class="container_spec">
+      <div>
+        <p class="name">{{device.name}}</p>
+      </div>
+      <div>
+        <p>OS: {{device.os}}</p>
+        <p>Диагональ: {{device.diagonal}}</p>
+        <p>Отдел: {{device.department.name}}</p>
+        <p>Разрешение: </p>
+        <p>Тип:</p>
       </div>
     </div>
-  </tui-scrollbar>
 
-  <div style="width: 270px; display: flex; flex-direction: column; justify-content: space-between;">
-    <tui-calendar
-      [value]="valueCalendar"
-      (dayClick)="onDayClick($event)"
-    ></tui-calendar>
-    <div style="">
+    <div class="buttons">
       <button
         tuiButton
         type="button"
         class="button"
         appearance="blue_outline"
         size="m"
-        style="font-size: 15px; width: 270px; margin-bottom: 15px;"
+        style="font-size: 15px; width: 100%; margin-bottom: 15px;"
         (click)="showUsageHistory(usageHistory)"
       >
         История использований
@@ -74,7 +45,7 @@
         type="button"
         class="button"
         size="m"
-        style="font-size: 15px; width: 270px;"
+        style="font-size: 15px; width: 100%;"
         (click)="showBookingCard()"
       >
         <tui-svg

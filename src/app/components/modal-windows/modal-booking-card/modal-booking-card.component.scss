@@ -1,37 +1,72 @@
-.wrapper{
-  display: flex;
-  flex-direction: row;
+.card {
+  width: 100%;
+  background-color: #fff;
 }
 
-.container{
+.wrapper{
+  max-width: 572px;
+  min-width: 572px;
+  //height: 360px;
+  display: grid;
+  grid-template-areas:
+    "img calendar calendar"
+    "spec . ."
+    "times button1 button1"
+    "times button2 button2";
+  column-gap: 32px;
+}
+
+.container_img {
   padding: 15px;
   border: 1px solid rgba(46, 98, 217, 0.32);
-  height: 240px;
-  width: 240px;
+  max-height: 100%;
+  min-height: 145px;
+  max-width: 100%;
   border-radius: 20px;
   margin-bottom: 15px;
+  grid-area: img;
 }
 
 .container_spec{
-  padding: 15px 10px;
+  padding: 15px 15px 0 15px;
   border: 1px solid rgba(46, 98, 217, 0.32);
-  width: 250px;
+  max-width: 100%;
+  max-height: 165px;
+  min-height: 165px;
   border-radius: 20px;
   justify-content: flex-start;
   margin-bottom: 15px;
+  grid-area: spec;
+
+  p{
+    text-align: center;
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .name {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 20px;
+  }
 }
 
-.container_img{
+.img{
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 20px;
 }
 
+.time_choose{
+  grid-area: times;
+}
+
 .time_wrapper{
   border: 1px solid rgba(46, 98, 217, 0.32);
   border-radius: 16px;
-  width: 270px;
+  max-width: 100%;
   height: 96px;
 }
 
@@ -43,17 +78,90 @@
   padding: 0 15px;
 }
 
-.characteristics p {
-  overflow: hidden;
+.button1 {
+  grid-area: button1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  //display: flex;
+  //flex-direction: column;
 }
-.characteristics p:after {  content:'..................................................';
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
+
+.button2 {
+  grid-area: button2;
 }
-.characteristics p span:first-of-type {
-  float:left;
+
+.calendar {
+  grid-area: calendar;
+  padding: 0;
 }
-.characteristics p span:last-of-type {
-  float:right;
+
+
+@media (max-width: 767px) {
+  .wrapper {
+    margin: 0 auto;
+    padding: 0 5px;
+    max-width: 572px;
+    min-width: 300px;
+    grid-template-areas:
+    "img img calendar calendar"
+    "spec spec times times"
+    "button1 button1 button2 button2";
+  }
+
+  .container_spec{
+    min-height: 165px;
+  }
+
+  .container_img {
+    min-height: 135px;
+  }
+
+  .calendar {
+    height: 220px;
+  }
+
+  .time_choose {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .time_wrapper {
+    margin-bottom: 15px;
+  }
+
+  .container_img {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 350px;
+    min-width: 200px;
+    height: 100%;
+    grid-template-areas:
+    "img spec"
+    "calendar calendar"
+    "times times"
+    "button1 button1"
+    "button2 button2"
+  }
+
+  .calendar {
+    height: 292px;
+    margin: 0 auto 15px auto;
+  }
+
+  .time {
+    justify-content: space-around;
+  }
+
+  .container_img {
+    padding: 5px;
+  }
 }

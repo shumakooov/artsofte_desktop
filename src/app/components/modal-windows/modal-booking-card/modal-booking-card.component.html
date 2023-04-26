@@ -1,65 +1,81 @@
-<div class="wrapper">
-  <div style="width: 270px; margin-right: 20px;">
-    <div *ngIf="device$ | async as device">
-      <div class="container">
-        <img class="container_img"
-             [src]="API_URL + device.image">
-      </div>
-      <div class="container_spec">
-        <p style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">{{device.name}}</p>
-        <p style="text-align: center; font-size: 10px; line-height: 13px;">OS: {{device.os}}</p>
-        <p style="text-align: center; font-size: 10px; line-height: 13px;">Диагональ: {{device.diagonal}}</p>
-        <p style="text-align: center; font-size: 10px; line-height: 13px; margin-bottom: 0;">Отдел: {{device.department.name}}</p>
-      </div>
+<div class="card">
+  <div class="wrapper" *ngIf="device$ | async as device">
+    <div class="container_img">
+      <img class="img"
+           [src]="API_URL + device.image">
     </div>
-    <div class="time_wrapper">
-      <p style="text-align: center; font-weight: 600; margin-bottom: 0;">Время</p>
-      <div class="time">
-        <p>C</p>
-        <form
-          class="b-form"
-          [formGroup]="timeStartForm"
-          style="width: 90px;"
-        >
-          <tui-input-time
-            tuiTextfieldSize="s"
-            formControlName="timeStart"
-            [items]="items1"
-          >
-            Время
-          </tui-input-time>
-        </form>
-        <p>до</p>
-        <form
-          class="b-form"
-          [formGroup]="timeFinishForm"
-          style="width: 90px;"
-        >
-          <tui-input-time
-            tuiTextfieldSize="s"
-            formControlName="timeFinish"
-            [items]="items1"
-          >
-            Время
-          </tui-input-time>
-        </form>
-      </div>
-    </div>
-  </div>
 
-  <div style="width: 270px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="container_spec">
+      <p class="name">{{device.name}}</p>
+      <p>OS: {{device.os}}</p>
+      <p>Диагональ: {{device.diagonal}}</p>
+      <p>Отдел: {{device.department.name}}</p>
+      <p>Разрешение: </p>
+      <p>Тип:</p>
+    </div>
+
+    <div class="time_choose">
+      <div class="time_wrapper">
+        <p style="text-align: center; font-weight: 600; margin-bottom: 0;">Время</p>
+        <div class="time">
+          <p>C</p>
+          <form
+            class="b-form"
+            [formGroup]="timeStartForm"
+            style="width: 90px;"
+          >
+            <tui-input-time
+              tuiTextfieldSize="s"
+              formControlName="timeStart"
+              [items]="items1"
+            >
+              Время
+            </tui-input-time>
+          </form>
+          <p>до</p>
+          <form
+            class="b-form"
+            [formGroup]="timeFinishForm"
+            style="width: 90px;"
+          >
+            <tui-input-time
+              tuiTextfieldSize="s"
+              formControlName="timeFinish"
+              [items]="items1"
+            >
+              Время
+            </tui-input-time>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <tui-calendar
       [value]="valueCalendarTuiDay"
+      class="calendar"
       (dayClick)="onDayClick($event)"
     ></tui-calendar>
-    <div>
+    <div class="button1">
+      <button
+        tuiButton
+        type="button"
+        class="button"
+        size="m"
+        appearance="blue_outline"
+        style="font-size: 15px; width: 100%; margin-bottom: 15px;"
+      >
+        Свободное время
+      </button>
+    </div>
+
+    <div class="button2">
       <button
         tuiButton
         type="button"
         class="button"
         size="m"
         appearance="green"
-        style="font-size: 15px; width: 270px;"
+        style="font-size: 15px; width: 100%;"
         (click)="recordDevice()"
       >
         <tui-svg
