@@ -1,14 +1,15 @@
-import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, Injector, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TUI_DATE_FORMAT, TuiDay, TuiTime, TuiTimeMode} from "@taiga-ui/cdk";
 import {tuiCreateTimePeriods, tuiInputTimeOptionsProvider} from "@taiga-ui/kit";
 import {TuiAlertService, TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
-import {POLYMORPHEUS_CONTEXT} from "@tinkoff/ng-polymorpheus";
+import {POLYMORPHEUS_CONTEXT, PolymorpheusComponent} from "@tinkoff/ng-polymorpheus";
 import {Observable} from "rxjs";
 import {Device, Record} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
 import {Router} from "@angular/router";
 import {environment} from "../../../../environments/environment";
+import {ModalCalendarComponent} from "../modal-calendar/modal-calendar.component";
 
 @Component({
   selector: 'app-modal-booking-card',
@@ -18,12 +19,14 @@ import {environment} from "../../../../environments/environment";
 })
 export class ModalBookingCardComponent implements OnInit{
   API_URL = environment.API_URL
+  mediaQuery: any = window.matchMedia("(max-width:480px)")
   get data(): number {
     return this.context.data;
   }
 
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
               @Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<number, number>,
+              @Inject(Injector) private readonly injector: Injector,
               private deviceService: DeviceService,
               private router: Router,
               @Inject(TuiAlertService)
@@ -32,8 +35,25 @@ export class ModalBookingCardComponent implements OnInit{
   device$: Observable<Device>
   timeStartForm: FormGroup
   timeFinishForm: FormGroup
+  dialogCalendar: Observable<number>
 
   ngOnInit(): void {
+    if (this.mediaQuery.matches) {
+      this.dialogCalendar = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalCalendarComponent, this.injector),
+        {
+          size: "fullscreen"
+        }
+      );
+    } else {
+      this.dialogCalendar = this.dialogService.open<number>(
+        new PolymorpheusComponent(ModalCalendarComponent, this.injector),
+        {
+          size: "auto"
+        }
+      );
+    }
+
     this.device$ = this.deviceService.getDevicesShortById(this.data)
 
     this.timeStartForm = new FormGroup({
@@ -42,6 +62,10 @@ export class ModalBookingCardComponent implements OnInit{
     this.timeFinishForm = new FormGroup({
       timeFinish: new FormControl(null, [Validators.required])
     })
+  }
+
+  showCalendar(): void {
+    this.dialogCalendar.subscribe();
   }
 
   items1 = tuiCreateTimePeriods();

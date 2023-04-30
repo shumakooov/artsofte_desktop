@@ -1,0 +1,91 @@
+.wrapper {
+  max-width: 623px;
+  min-width: 623px;
+  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "moving currentDate view";
+}
+
+.btn_group_moving {
+  display: flex;
+  flex-direction: row;
+  grid-area: moving;
+}
+
+.btn_group_view {
+  display: flex;
+  flex-direction: row;
+  grid-area: view;
+}
+
+.current_date {
+  grid-area: currentDate;
+}
+
+.btn {
+  background-color: #526ed3;
+  color: #fff;
+  align-self: center;
+  padding: 10px;
+
+  &_sideLeft {
+    border-radius: 10px 0 0 10px;
+  }
+
+  &_sideRight {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &_central {
+    background-color: #fff;
+    color: #434854;
+    box-shadow: 0 0 0 1px #526ed3 inset;
+  }
+}
+
+.btn:hover {
+  background-color: #6c86e2;
+  cursor: pointer;
+}
+
+.btn_central:hover {
+  background-color: #ebefff;
+}
+
+.btn.active {
+  background-color: #314692;
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    min-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 570px) {
+  .wrapper {
+    grid-template-areas: "moving view"
+                          "currentDate .";
+  }
+
+  .current_date {
+    grid-row-start: 2;
+  }
+}
+
+@media (max-width: 370px) {
+  .wrapper {
+    grid-template-areas: "moving"
+    "view"
+    "currentDate";
+  }
+
+  .current_date {
+    grid-row-start: 3;
+  }
+
+  .btn_group_view {
+    margin-top: 18px;
+  }
+}

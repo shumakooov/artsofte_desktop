@@ -1,0 +1,109 @@
+.container {
+  margin: 120px auto 0 auto;
+  padding: 10px 30px 20px 30px;
+  border-radius: 20px;
+  max-width: 1000px;
+  min-width: 820px;
+  background-color: #fff;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "moving currentDate view";
+  margin-bottom: 10px;
+}
+
+
+.btn_back {
+  margin-right: 15px;
+  align-self: center;
+}
+
+.btn_group_moving {
+  display: flex;
+  flex-direction: row;
+  grid-area: moving;
+}
+
+.btn_group_view {
+  display: flex;
+  flex-direction: row;
+  grid-area: view;
+}
+
+.current_date {
+  grid-area: currentDate;
+}
+
+.btn {
+  background-color: #526ed3;
+  color: #fff;
+  align-self: center;
+  padding: 10px;
+
+  &_sideLeft {
+    border-radius: 10px 0 0 10px;
+  }
+
+  &_sideRight {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &_central {
+    background-color: #fff;
+    color: #434854;
+    box-shadow: 0 0 0 1px #526ed3 inset;
+  }
+}
+
+.btn:hover {
+  background-color: #6c86e2;
+  cursor: pointer;
+}
+
+.btn_central:hover {
+  background-color: #ebefff;
+}
+
+.btn.active {
+  background-color: #314692;
+}
+
+@media (max-width: 1092px) {
+  .container {
+    max-width: 770px;
+    min-width: 687px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin-top: 100px;
+    max-width: 520px;
+    min-width: 385px;
+  }
+}
+
+@media (max-width: 570px) {
+  .wrapper {
+    grid-template-areas: "moving view"
+                          "currentDate .";
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 78px;
+    max-width: 320px;
+    min-width: 200px;
+    padding: 10px 15px 20px 15px;
+  }
+
+  .wrapper {
+    grid-template-areas: "moving moving"
+    "view currentDate"
+    ;
+  }
+}

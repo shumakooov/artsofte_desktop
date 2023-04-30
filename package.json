@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,10 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@date-io/date-fns": "^2.16.0",
+    "@fortawesome/angular-fontawesome": "^0.11.1",
+    "@fortawesome/fontawesome-svg-core": "~1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@taiga-ui/addon-commerce": "^3.11.0",
     "@taiga-ui/addon-editor": "^3.11.0",
     "@taiga-ui/addon-mobile": "^3.11.0",
@@ -32,6 +37,8 @@
     "@taiga-ui/styles": "^3.11.0",
     "@tinkoff/ng-dompurify": "3.0.0",
     "@tinkoff/ng-polymorpheus": "^4.0.10",
+    "angular-calendar": "^0.30.1",
+    "date-fns": "^2.29.3",
     "dompurify": "2.2.9",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

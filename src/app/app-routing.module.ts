@@ -8,6 +8,7 @@ import {AuthGuard} from "./classes/auth.guard";
 import {EditProfilePageComponent} from "./pages/edit-profile-page/edit-profile-page.component";
 import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
 import {HomeLayoutComponent} from "./layouts/home-layout/home-layout.component";
+import {CalendarPageComponent} from "./pages/calendar-page/calendar-page.component";
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: 'devices', component: ListDevicesPageComponent},
       {path: 'booked', component: BookedDevicesPageComponent},
       {path: 'profile', component: ProfilePageComponent},
-      {path: 'profile/edit', component: EditProfilePageComponent}
+      {path: 'profile/edit', component: EditProfilePageComponent},
+      {path: 'calendar', component: CalendarPageComponent}
     ]
   }
 ];
