@@ -43,35 +43,13 @@
     <app-dropdown-tag></app-dropdown-tag>
   </div>
 
-<!--  <div>-->
-<!--    <form-->
-<!--      class="b-form"-->
-<!--      style="margin-bottom: 15px; width: 100%"-->
-<!--      [tuiTextfieldCleaner]="true"-->
-<!--    >-->
-<!--      <tui-input-date-range-->
-<!--        tuiUnfinishedValidator="Finish filling the field"-->
-<!--        [min]="minDate"-->
-<!--        [max]="maxDate"-->
-<!--        [(ngModel)]="date"-->
-<!--      >-->
-<!--        Choose dates-->
-<!--        <input-->
-<!--          tuiTextfield-->
-<!--          placeholder="From - To"-->
-<!--        />-->
-<!--      </tui-input-date-range>-->
-<!--      <tui-error-->
-<!--        formControlName="testValue"-->
-<!--        [error]="[] | tuiFieldError | async"-->
-<!--      ></tui-error>-->
-<!--    </form>-->
-<!--  </div>-->
-
   <div style="margin-bottom: 15px;">
     <app-dropdown-sort (onClick)="handleSort($event)"></app-dropdown-sort>
   </div>
 
+  <a routerLink="/calendar" class="link">
+    Забронированные устройства
+  </a>
   <button
     tuiButton
     type="button"

@@ -39,6 +39,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -74,6 +77,9 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
 import { ModalFilterComponent } from './components/modal-windows/modal-filter/modal-filter.component';
 import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
+import { ModalCalendarComponent } from './components/modal-windows/modal-calendar/modal-calendar.component';
+import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -107,7 +113,9 @@ import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
     FilterBookedPipe,
     LoginLayoutComponent,
     HomeLayoutComponent,
-    ModalFilterComponent
+    ModalFilterComponent,
+    ModalCalendarComponent,
+    CalendarPageComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +158,13 @@ import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
     TuiAccordionModule,
     TuiSidebarModule,
     TuiMarkerIconModule,
-    TuiMoneyModule
+    TuiMoneyModule,
+    CommonModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    FontAwesomeModule,
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, ListDevicesPageComponent],
   bootstrap: [AppComponent]
