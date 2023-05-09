@@ -57,26 +57,28 @@
   </div>
 </div>
 
-<ng-template #usageHistory>
-  <div class="usageHistory">
+<ng-template #usageHistory let-observer>
+  <div class="usageH_wrapper">
     <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История использования</h3>
-    <div *ngIf="usageHistory$ | async as items">
-      <div *ngFor="let item of items">
-        <h3 style="font-size: 12px;">{{item.date}}</h3>
-        <p
-          style="font-size: 12px;"
-          *ngFor="let record of item.records"
-        ><span>{{record.userName}}</span><span>{{record.timeFrom}}-{{record.timeTo}}</span></p>
+    <div class="usageHistory">
+      <div *ngIf="usageHistory$ | async as items">
+        <div *ngFor="let item of items">
+          <h3 style="font-size: 12px;">{{item.date}}</h3>
+          <p
+            style="font-size: 12px;"
+            *ngFor="let record of item.records"
+          ><span>{{record.userName}}</span><span>{{record.timeFrom}}-{{record.timeTo}}</span></p>
+        </div>
       </div>
     </div>
-    <div>
+    <div class="btn_wrapper">
       <button
         tuiButton
         type="button"
-        class="button"
         size="m"
-        style="font-size: 15px; width: 270px; justify-content: center; align-self: center;"
+        class="btn_usageH"
         appearance="red_outline"
+        (click)="observer.complete()"
       >
         Назад
       </button>

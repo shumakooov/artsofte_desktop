@@ -34,14 +34,15 @@ import {
   TuiCheckboxLabeledModule, TuiAccordionModule, TuiMarkerIconModule,
 } from '@taiga-ui/kit';
 import {TuiActiveZoneModule, TuiLetModule} from '@taiga-ui/cdk';
+import {TuiMobileCalendarModule} from '@taiga-ui/addon-mobile';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import {CommonModule} from '@angular/common';
+import {CalendarModule, DateAdapter} from 'angular-calendar';
+import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -56,7 +57,9 @@ import {DropdownSystemComponent} from './components/dropdowns/dropdown-system/dr
 import {DropdownTypeComponent} from './components/dropdowns/dropdown-type/dropdown-type.component';
 import {DropdownDepartmentComponent} from './components/dropdowns/dropdown-department/dropdown-department.component';
 import {DropdownSortComponent} from "./components/dropdowns/dropdown-sort/dropdown-sort.component";
-import {ModalCancelReserveComponent} from './components/modal-windows/modal-cancel-reserve/modal-cancel-reserve.component';
+import {
+  ModalCancelReserveComponent
+} from './components/modal-windows/modal-cancel-reserve/modal-cancel-reserve.component';
 import {ModalReturnDeviceComponent} from './components/modal-windows/modal-return-device/modal-return-device.component';
 import {DeviceProblemComponent} from './components/device-problem/device-problem.component';
 import {DropdownReasonComponent} from './components/dropdowns/dropdown-reason/dropdown-reason.component';
@@ -66,20 +69,22 @@ import {BookingHistoryComponent} from "./components/booking-history/booking-hist
 import {ProfileInfoComponent} from './components/profile-info/profile-info.component';
 import {DropdownTagComponent} from "./components/dropdowns/dropdown-tag/dropdown-tag.component";
 import {ModalBookingCardComponent} from "./components/modal-windows/modal-booking-card/modal-booking-card.component";
-import {ModalDeviceProblemComponent} from "./components/modal-windows/modal-device-problem/modal-device-problem.component";
+import {
+  ModalDeviceProblemComponent
+} from "./components/modal-windows/modal-device-problem/modal-device-problem.component";
 import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
-import { EditProfilePageComponent } from './pages/edit-profile-page/edit-profile-page.component';
-import { FilterPipe } from './pipes/filter.pipe';
+import {EditProfilePageComponent} from './pages/edit-profile-page/edit-profile-page.component';
+import {FilterPipe} from './pipes/filter.pipe';
 import {FilterBookedPipe} from "./pipes/filterBooked.pipe";
-import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import {LoginLayoutComponent} from './layouts/login-layout/login-layout.component';
+import {HomeLayoutComponent} from './layouts/home-layout/home-layout.component';
 import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
-import { ModalFilterComponent } from './components/modal-windows/modal-filter/modal-filter.component';
+import {ModalFilterComponent} from './components/modal-windows/modal-filter/modal-filter.component';
 import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
-import { ModalCalendarComponent } from './components/modal-windows/modal-calendar/modal-calendar.component';
-import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {ModalCalendarComponent} from './components/modal-windows/modal-calendar/modal-calendar.component';
+import {CalendarPageComponent} from './pages/calendar-page/calendar-page.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -165,6 +170,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       useFactory: adapterFactory,
     }),
     FontAwesomeModule,
+    TuiMobileCalendarModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, ListDevicesPageComponent],
   bootstrap: [AppComponent]

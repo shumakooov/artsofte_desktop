@@ -72,9 +72,20 @@
   border-radius: 20px;
 }
 
+.btn_usageH {
+  font-size: 15px;
+  width: 270px;
+  align-self: center;
+}
+
+.btn_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .usageHistory{
   width: 300px;
-  max-height: 510px;
+  max-height: 480px;
   overflow-y: auto;
 }
 
@@ -111,6 +122,12 @@
 
   .container_img {
     min-height: 135px;
+  }
+
+  .usageH_wrapper {
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 0 30px;
   }
 }
 
@@ -149,5 +166,9 @@
 
   .tags {
     margin-bottom: 15px;
+  }
+
+  .usageH_wrapper {
+    padding: 0;
   }
 }
