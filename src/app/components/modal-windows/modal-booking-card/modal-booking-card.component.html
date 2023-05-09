@@ -50,11 +50,24 @@
       </div>
     </div>
 
-    <tui-calendar
-      [value]="valueCalendarTuiDay"
-      class="calendar"
-      (dayClick)="onDayClick($event)"
-    ></tui-calendar>
+    <div class="cal_wrapper">
+      <button
+        tuiIconButton
+        type="button"
+        title="Choose a date"
+        appearance="secondary"
+        shape="rounded"
+        icon="tuiIconCalendarLarge"
+        (click)="onClick()"
+      ></button>
+      <span
+        class="date"
+        [class.date_empty]="empty"
+      >
+        {{ date$ | async }}
+      </span>
+    </div>
+
     <div class="button1">
       <button
         tuiButton
