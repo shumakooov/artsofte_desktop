@@ -127,11 +127,7 @@ export class CalendarPageComponent implements OnInit {
 
   refresh = new Subject<void>();
 
-  eventTimesChanged({
-                      event,
-                      newStart,
-                      newEnd,
-                    }: CalendarEventTimesChangedEvent): void {
+  eventTimesChanged({event, newStart, newEnd,}: CalendarEventTimesChangedEvent): void {
     event.start = newStart;
     event.end = newEnd;
     let changeRecord: ChangeRecord = {
