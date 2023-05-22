@@ -61,15 +61,19 @@
   <div class="usageH_wrapper">
     <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История использования</h3>
     <div class="usageHistory">
-      <div *ngIf="usageHistory$ | async as items">
+      <tui-scrollbar>
+      <div style="height: 468px" *ngIf="usageHistory$ | async as items">
+
         <div *ngFor="let item of items">
-          <h3 style="font-size: 12px;">{{item.date}}</h3>
+          <h3 style="font-size: 12px; width: 280px">{{item.date}}</h3>
           <p
-            style="font-size: 12px;"
+            style="font-size: 12px; width: 280px"
             *ngFor="let record of item.records"
           ><span>{{record.userName}}</span><span>{{record.timeFrom}}-{{record.timeTo}}</span></p>
         </div>
+
       </div>
+      </tui-scrollbar>
     </div>
     <div class="btn_wrapper">
       <button

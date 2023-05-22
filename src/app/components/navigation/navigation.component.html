@@ -46,6 +46,12 @@
       </form>
     </div>
     <div class="links">
+      <a routerLink="/calendar" class="link" routerLinkActive="active">
+        <tui-svg
+          src="tuiIconCalendarLarge"
+          class="icon"
+        ></tui-svg>
+      </a>
       <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
         <tui-svg
           src="tuiIconCheckCircleLarge"
@@ -77,6 +83,13 @@
     >
       <div *tuiSidebar="open; direction: 'right'">
         <div>
+          <a routerLink="/calendar" class="link" routerLinkActive="active">
+            <tui-svg
+              src="tuiIconCalendarLarge"
+              class="icon"
+            ></tui-svg>
+            Календарь
+          </a>
           <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
             <tui-svg
               src="tuiIconCheckCircleLarge"

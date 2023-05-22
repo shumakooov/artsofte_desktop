@@ -1,7 +1,8 @@
 export interface User {
-  username: string;
-  password: string;
-  rememberme: boolean;
+  username: string,
+  password: string,
+  rememberme: boolean,
+  timezone: number,
 }
 
 export interface Device {
@@ -80,4 +81,19 @@ export interface Tag{
 export interface ReturnDevice {
   recordId: number,
   departmentId: number
+}
+
+export interface CalendarRecord {
+  id: number,
+  title: string,
+  start: string,
+  end: string,
+  booked: boolean,
+  deviceId: number
+}
+
+export interface ChangeRecord {
+  bookingId?: string | number,
+  start: string,
+  end?: string
 }

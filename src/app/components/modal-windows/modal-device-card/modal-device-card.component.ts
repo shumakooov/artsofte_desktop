@@ -1,4 +1,12 @@
-import {AfterContentInit, Component, Inject, Injector, OnInit, TemplateRef} from '@angular/core';
+import {
+  AfterContentInit,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Injector,
+  OnInit,
+  TemplateRef
+} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {TuiDay} from "@taiga-ui/cdk";
 import {TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
@@ -12,7 +20,8 @@ import {environment} from "../../../../environments/environment";
 @Component({
   selector: 'app-modal-device-card',
   templateUrl: './modal-device-card.component.html',
-  styleUrls: ['./modal-device-card.component.scss']
+  styleUrls: ['./modal-device-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
   API_URL = environment.API_URL

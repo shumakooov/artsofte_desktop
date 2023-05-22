@@ -50,6 +50,12 @@
       </div>
     </div>
 
+    <tui-calendar
+      [value]="valueCalendarTuiDay"
+      class="calendar"
+      (dayClick)="onDayClick($event)"
+    ></tui-calendar>
+
     <div class="cal_wrapper">
       <button
         tuiIconButton

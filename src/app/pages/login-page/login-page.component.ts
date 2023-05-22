@@ -5,13 +5,14 @@ import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TuiAlertService} from '@taiga-ui/core';
 
+const date = new Date()
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit, OnDestroy {
 
+export class LoginPageComponent implements OnInit, OnDestroy {
   authForm: FormGroup
   aSub: Subscription
 
@@ -40,7 +41,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     const user = {
       username: this.authForm.value.username,
       password: this.authForm.value.password,
-      rememberme: this.authForm.value.rememberme
+      rememberme: this.authForm.value.rememberme,
+      timezone: date.getTimezoneOffset() / (-60)
     }
     this.aSub = this.auth.login(user).subscribe(
       () => this.router.navigate(['/devices']),

@@ -97,7 +97,7 @@
 }
 
 .cal_wrapper {
-  display: flex;
+  display: none;
   align-items: center;
   margin-bottom: 15px;
 }
@@ -167,8 +167,11 @@
   }
 
   .calendar {
-    height: 292px;
-    margin: 0 auto 15px auto;
+    display: none;
+  }
+
+  .cal_wrapper {
+    display: flex;
   }
 
   .time {

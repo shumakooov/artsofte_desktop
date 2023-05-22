@@ -68,14 +68,16 @@ export class ModalBookingCardComponent implements OnInit{
       this.dialogCalendar = this.dialogService.open<number>(
         new PolymorpheusComponent(ModalCalendarComponent, this.injector),
         {
-          size: "fullscreen"
+          size: "fullscreen",
+          data: this.data
         }
       );
     } else {
       this.dialogCalendar = this.dialogService.open<number>(
         new PolymorpheusComponent(ModalCalendarComponent, this.injector),
         {
-          size: "auto"
+          size: "auto",
+          data: this.data
         }
       );
     }
@@ -99,6 +101,13 @@ export class ModalBookingCardComponent implements OnInit{
 
 //calendar
   valueCalendar: string | null = null;
+  valueCalendarTuiDay: TuiDay | null = null;
+
+  onDayClick(day: TuiDay): void {
+    this.valueCalendar = [day.year, day.formattedMonthPart, day.formattedDayPart].join('-');
+    this.valueCalendarTuiDay = day;
+  }
+
   private readonly controlCal = new FormControl(TuiDay.fromLocalNativeDate(new Date()));
   private readonly dialog$: Observable<TuiDay>;
   readonly date$ = this.controlCal.valueChanges.pipe(

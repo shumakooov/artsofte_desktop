@@ -1,9 +1,8 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
-import {BookedDevice, Profile, Record} from "../interfaces";
+import {BookedDevice, Profile} from "../interfaces";
 import {Observable} from "rxjs";
-import {TuiFileLike} from "@taiga-ui/kit";
 
 @Injectable({
   providedIn: 'root'
