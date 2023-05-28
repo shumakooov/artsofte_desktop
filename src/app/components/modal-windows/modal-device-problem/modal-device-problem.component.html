@@ -1,15 +1,17 @@
 <div class="wrapper">
-  <p style="color: #2E62D9; font-size: 15px; margin-bottom: 15px; margin-top: 0; font-weight: 800;">Опишите проблему</p>
-  <div class="container">
-    <div>
+  <p style="color: #2E62D9; font-size: 15px; margin-bottom: 15px; margin-top: 0; font-weight: 800; text-align: center">Опишите проблему</p>
+  <div class="container1">
+    <div class="reason">
       <app-dropdown-reason></app-dropdown-reason>
+    </div>
+    <div class="textForm">
       <form
-        style="width: 270px;"
+        style="width: 100%;"
         [formGroup]="testForm"
       >
         <div>
           <tui-text-area
-            style="width: 270px; height: 190px;"
+            style="width: 100%; height: 190px;"
             formControlName="testValue2"
           >
             Описание
@@ -18,16 +20,18 @@
       </form>
     </div>
 
-    <div style="display: flex; justify-content: space-between; flex-direction: column;">
+    <div class="file">
       <app-input-files></app-input-files>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; justify-items: center; column-gap: 10px;">
+    </div>
+    <div class="btn_group">
+      <div class="btn_wrapper">
         <button
           tuiButton
           type="button"
           class="button"
           appearance="green_outline"
           size="m"
-          style="font-size: 15px; width: 130px;"
+          style="font-size: 15px; width: 100%;"
         >
           Отправить
         </button>
@@ -37,7 +41,7 @@
           class="button"
           appearance="red_outline"
           size="m"
-          style="font-size: 15px; width: 130px;"
+          style="font-size: 15px; width: 100%;"
           (click)="closeDeviceProblem()"
         >
           Отмена

@@ -135,7 +135,9 @@ export class CalendarPageComponent implements OnInit {
       start: newStart.toISOString(),
       end: newEnd?.toISOString()
     }
+    console.log(newStart)
     this.calendarService.changeRecord(changeRecord)
+    console.log(newEnd)
     this.refresh.next();
   }
 

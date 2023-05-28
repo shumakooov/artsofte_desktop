@@ -157,13 +157,12 @@
     padding: 0;
     max-width: 350px;
     min-width: 200px;
-    height: 100%;
     grid-template-areas:
     "img spec"
     "calendar calendar"
     "times times"
     "button1 button1"
-    "button2 button2"
+    "button2 button2";
   }
 
   .calendar {

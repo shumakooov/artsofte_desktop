@@ -1,12 +1,72 @@
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.wrapper {
+  width: 100%;
+  background-color: #fff;
 }
 
-.container{
+.container1 {
+  max-width: 572px;
+  min-width: 572px;
   display: grid;
+  grid-template-areas:
+    "reason file"
+    "textForm btns";
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
+  margin: 0 auto;
+}
+
+.file {
+  grid-area: file;
+  width: 100%;
+}
+
+.reason {
+  grid-area: reason;
+  width: 100%;
+}
+
+.textForm {
+  grid-area: textForm;
+  width: 100%;
+}
+
+.btn_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: btns;
+  width: 100%;
+}
+
+.btn_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .container1 {
+    margin: 0 auto;
+    padding: 0 5px;
+    max-width: 572px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container1 {
+    max-width: 350px;
+    min-width: 200px;
+    height: 100%;
+    grid-template-areas:
+      "reason"
+      "textForm"
+      "file"
+      "btns";
+    grid-template-columns: 1fr;
+  }
+
+  .textForm {
+    margin-bottom: 15px;
+  }
 }

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 150px auto 0 auto;
+  margin: 120px auto 0 auto;
   padding-bottom: 35px;
 }
 
@@ -17,8 +17,8 @@
   height: 240px;
   width: 240px;
   border-radius: 16px;
-  margin-bottom: 20px;
-  margin-top: 35px;
+
+  margin: 35px auto 20px auto;
 }
 
 .container_img{
@@ -41,4 +41,16 @@
 
 .file-input {
   margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .wrapper{
+    margin: 100px auto 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper{
+    margin: 78px auto 0 auto;
+  }
 }

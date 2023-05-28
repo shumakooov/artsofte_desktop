@@ -1,13 +1,21 @@
 .wrapper{
-  width: 20vw;
-  min-width: 240px;
-  max-height: 500px;
-  height: 500px;
+
+  min-width: 210px;
+  max-width: 357px;
+  max-height: 550px;
+  height: 550px;
   overflow: auto;
   border-radius: 22px;
   background-color: #fff;
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
-  padding: 35px 0 35px 25px;
+  padding: 35px 0;
+}
+
+.container {
+  height: 550px;
+  padding: 0 30px;
+  min-width: 210px;
+  max-width: 277px;
 }
 
 p {
@@ -25,3 +33,8 @@ p span:last-of-type {
   float:right;
 }
 
+@media (max-width: 480px) {
+  .wrapper {
+    box-shadow: none;
+  }
+}

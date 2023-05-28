@@ -10,18 +10,6 @@ import {DeviceService} from "../../services/device.service";
 })
 export class BookedDevicesPageComponent implements OnInit {
   searchKey: string = "";
-  filtersticky:boolean = false;
-
-  @HostListener('window:scroll', ['$event']) onscroll(){
-    if(window.scrollY > 50)
-    {
-      this.filtersticky = true;
-    }
-    else
-    {
-      this.filtersticky = false;
-    }
-  }
 
   bookedDevices$: Observable<BookedDevice[]>
 

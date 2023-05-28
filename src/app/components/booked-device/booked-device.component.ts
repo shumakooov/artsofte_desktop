@@ -46,36 +46,15 @@ export class BookedDeviceComponent implements AfterContentInit {
 
 
   showConfirmReturn(): void {
-    this.dialogReturnDevice.subscribe({
-      next: data => {
-        console.info(`Dialog emitted data = ${data}`);
-      },
-      complete: () => {
-        console.info(`Dialog closed`);
-      },
-    });
+    this.dialogReturnDevice.subscribe();
   }
 
   showConfirmCancel(): void {
-    this.dialogCancelReserve.subscribe({
-      next: data => {
-        console.info(`Dialog emitted data = ${data}`);
-      },
-      complete: () => {
-        console.info(`Dialog closed`);
-      },
-    });
+    this.dialogCancelReserve.subscribe();
   }
 
   showDeviceProblem(): void {
-    this.dialogDeviceProblem.subscribe({
-      next: data => {
-        console.info(`Dialog emitted data = ${data}`);
-      },
-      complete: () => {
-        console.info(`Dialog closed`);
-      },
-    });
+    this.dialogDeviceProblem.subscribe();
   }
 
 }

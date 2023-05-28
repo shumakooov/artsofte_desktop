@@ -1,6 +1,6 @@
 <div class="wrapper">
   <tui-scrollbar>
-    <div style="height: 500px; padding-right: 25px;">
+    <div class="container">
       <h3 style="text-align: center; font-size: 15px; margin: 0; line-height: 20px;">История бронирований</h3>
       <div *ngIf="bookingHistory$ | async as items">
         <div *ngFor="let item of items">

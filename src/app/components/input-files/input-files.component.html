@@ -1,5 +1,5 @@
 <tui-input-files
-  style="width: 270px;"
+  style="width: 100%;"
   accept="image/*"
   [multiple]="true"
   [formControl]="control"
@@ -7,7 +7,7 @@
   (ngModelChange)="control.markAsTouched()"
 ></tui-input-files>
 
-<tui-files class="tui-space_top-1" style="width: 270px; margin-bottom: 15px;">
+<tui-files class="tui-space_top-1" style="width: 100%; margin-bottom: 15px;">
   <tui-file
     *ngFor="let file of control.valueChanges | async"
     [file]="file"
