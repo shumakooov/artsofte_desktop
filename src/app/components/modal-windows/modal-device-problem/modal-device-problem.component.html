@@ -2,17 +2,29 @@
   <p style="color: #2E62D9; font-size: 15px; margin-bottom: 15px; margin-top: 0; font-weight: 800; text-align: center">Опишите проблему</p>
   <div class="container1">
     <div class="reason">
-      <app-dropdown-reason></app-dropdown-reason>
+      <form
+        style="width: 100%;"
+        [formGroup]="reportForm"
+      >
+        <div>
+          <tui-text-area
+            style="width: 100%; height: 60px;"
+            formControlName="reason"
+          >
+            Причина
+          </tui-text-area>
+        </div>
+      </form>
     </div>
     <div class="textForm">
       <form
         style="width: 100%;"
-        [formGroup]="testForm"
+        [formGroup]="reportForm"
       >
         <div>
           <tui-text-area
             style="width: 100%; height: 190px;"
-            formControlName="testValue2"
+            formControlName="description"
           >
             Описание
           </tui-text-area>
@@ -32,6 +44,7 @@
           appearance="green_outline"
           size="m"
           style="font-size: 15px; width: 100%;"
+          (click)="postReport()"
         >
           Отправить
         </button>

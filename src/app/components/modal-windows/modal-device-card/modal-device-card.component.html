@@ -4,10 +4,11 @@
       <img class="img"
            [src]="API_URL + device.image">
     </div>
+
     <tui-input-tag
       tuiTextfieldSize="m"
       [uniqueTags]="true"
-      [(ngModel)]="valueTag"
+      [(ngModel)]="tags"
       [tuiTextfieldLabelOutside]="true"
       [formControl]="control"
       class="tags"
@@ -22,8 +23,8 @@
         <p>OS: {{device.os}}</p>
         <p>Диагональ: {{device.diagonal}}</p>
         <p>Отдел: {{device.department.name}}</p>
-        <p>Разрешение: </p>
-        <p>Тип:</p>
+        <p>Разрешение: {{device.resolution}}</p>
+        <p>Тип: {{device.type}}</p>
       </div>
     </div>
 

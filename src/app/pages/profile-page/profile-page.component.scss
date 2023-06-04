@@ -32,6 +32,10 @@
     display: none;
     width: 48%;
   }
+
+  &_quit {
+    display: block;
+  }
 }
 
 .info {
@@ -103,6 +107,6 @@
   }
 
   .btn_group_hidden {
-    display: block;
+    display: none;
   }
 }

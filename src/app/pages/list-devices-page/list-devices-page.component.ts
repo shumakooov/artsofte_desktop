@@ -10,6 +10,8 @@ import {Observable} from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListDevicesPageComponent implements OnInit {
+  mediaQuery: any = window.matchMedia("(max-width:767px)")
+
   searchKey: string = "";
 
   devices$: Observable<Device[]>
@@ -18,6 +20,12 @@ export class ListDevicesPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.mediaQuery.matches) {
+      let el = document.getElementById('filter');
+      // @ts-ignore
+      el.remove();
+    }
+
     this.devices$ = this.deviceService.getDevicesShort()
 
     this.deviceService.search.subscribe((value) => {

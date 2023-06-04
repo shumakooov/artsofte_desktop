@@ -75,42 +75,67 @@
     <button
       tuiIconButton
       type="button"
-      class="sidebar"
+      class="sidebar_btn"
       icon="tuiIconMenuLarge"
       appearance="flat"
       (click)="toggle(true)"
       (tuiActiveZoneChange)="toggle($event)"
     >
       <div *tuiSidebar="open; direction: 'right'">
-        <div>
-          <a routerLink="/calendar" class="link" routerLinkActive="active">
-            <tui-svg
-              src="tuiIconCalendarLarge"
-              class="icon"
-            ></tui-svg>
-            Календарь
-          </a>
-          <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick()">
-            <tui-svg
-              src="tuiIconCheckCircleLarge"
-              class="icon"
-            ></tui-svg>
-            Забронированные устройства
-          </a>
-          <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick()">
-            <tui-svg
-              src="tuiIconSearchLarge"
-              class="icon"
-            ></tui-svg>
-            Все устройства
-          </a>
-          <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick()">
-            <tui-svg
-              src="tuiIconUser"
-              class="icon"
-            ></tui-svg>
-            Профиль
-          </a>
+        <div class="sidebar">
+          <div>
+            <a routerLink="/calendar" class="link" routerLinkActive="active" (click)="toggle(false)">
+              <tui-svg
+                src="tuiIconCalendarLarge"
+                class="icon"
+              ></tui-svg>
+              Календарь
+            </a>
+            <a routerLink="/booked" class="link" routerLinkActive="active" (click)="onClick(); toggle(false)">
+              <tui-svg
+                src="tuiIconCheckCircleLarge"
+                class="icon"
+              ></tui-svg>
+              Забронированные устройства
+            </a>
+            <a routerLink="/devices" class="link" routerLinkActive="active" (click)="onClick(); toggle(false)">
+              <tui-svg
+                src="tuiIconSearchLarge"
+                class="icon"
+              ></tui-svg>
+              Все устройства
+            </a>
+            <a routerLink="/profile" class="link" routerLinkActive="active" (click)="onClick(); toggle(false)">
+              <tui-svg
+                src="tuiIconUser"
+                class="icon"
+              ></tui-svg>
+              Профиль
+            </a>
+          </div>
+          <div>
+            <a
+              class="link"
+              routerLinkActive="active"
+              routerLink="/profile/edit"
+              (click)="toggle(false)"
+            >
+              <tui-svg
+                src="tuiIconEditLarge"
+                class="icon"
+              ></tui-svg>
+              Редактировать профиль
+            </a>
+            <button
+              tuiButton
+              type="button"
+              style="margin-left: 15px"
+              appearance="red_outline"
+              (click)="logout()"
+            >
+              Выйти
+            </button>
+          </div>
         </div>
       </div>
     </button>

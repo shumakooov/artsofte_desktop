@@ -31,6 +31,7 @@
 }
 
 .link {
+  font-size: 15px;
   color: rgba(46, 98, 217, 0.4);
   border: 2px solid rgba(46, 98, 217, 0.4);
   border-radius: 16px;
@@ -77,8 +78,16 @@
   display: none;
 }
 
-.sidebar {
+.sidebar_btn {
   display: none;
+}
+
+.sidebar {
+  padding-top: 25px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (max-width: 1092px) {
@@ -142,7 +151,7 @@
     border: none;
   }
 
-  .sidebar {
+  .sidebar_btn {
     display: block;
   }
 

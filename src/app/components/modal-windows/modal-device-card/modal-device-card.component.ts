@@ -12,8 +12,8 @@ import {TuiDay} from "@taiga-ui/cdk";
 import {TuiDialogContext, TuiDialogService} from "@taiga-ui/core";
 import {POLYMORPHEUS_CONTEXT, PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
 import {ModalBookingCardComponent} from "../modal-booking-card/modal-booking-card.component";
-import {Observable} from "rxjs";
-import {Device, RecordsHistory} from "../../../interfaces";
+import {Observable, Subscription} from "rxjs";
+import {Device, RecordsHistory, Tag} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
 import {environment} from "../../../../environments/environment";
 
@@ -55,18 +55,13 @@ export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
 
   device$: Observable<Device>
   usageHistory$: Observable<RecordsHistory[]>
+  tags = ['#']
 
   ngOnInit(): void {
-    this.device$ = this.deviceService.getDevicesShortById(this.data)
+    this.deviceService.getDeviceTags(this.data).subscribe(x => x.forEach(tag => this.tags.push(tag.name)))
+    this.device$ = this.deviceService.getDevicesFullById(this.data)
     this.usageHistory$ = this.deviceService.getUsageHistoryById(this.data)
+
   }
-
-  valueCalendar: TuiDay | null = null;
-
-  onDayClick(day: TuiDay): void {
-    this.valueCalendar = day;
-  }
-
-  valueTag = [`Android`, `6,67"`, `MIUI`, `MI Браузер`];
   readonly control = new FormControl([]);
 }

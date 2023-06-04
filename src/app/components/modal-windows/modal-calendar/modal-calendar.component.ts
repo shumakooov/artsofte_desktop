@@ -1,6 +1,7 @@
 import {Component, ChangeDetectionStrategy, Inject} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {
+  CalendarDateFormatter,
   CalendarEvent,
   CalendarEventTimesChangedEvent,
   CalendarView, DAYS_OF_WEEK,
@@ -12,6 +13,7 @@ import {CalendarRecord} from "../../../interfaces";
 import {Location} from "@angular/common";
 import {CalendarService} from "../../../services/calendar.service";
 import {map} from "rxjs/operators";
+import { CustomDateFormatter } from './custom-date-formatter.provider';
 
 const colors: Record<string, EventColor> = {
   gray: {
@@ -30,6 +32,12 @@ const colors: Record<string, EventColor> = {
   templateUrl: './modal-calendar.component.html',
   styleUrls: ['./modal-calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter,
+    },
+  ],
 })
 export class ModalCalendarComponent {
   get data(): number {

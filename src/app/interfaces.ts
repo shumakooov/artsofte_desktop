@@ -11,7 +11,9 @@ export interface Device {
   os: string,
   diagonal: number,
   department: { id: number, name: string },
-  image: string
+  image: string,
+  type: string,
+  resolution: string
 }
 
 export interface Profile {
@@ -96,4 +98,14 @@ export interface ChangeRecord {
   bookingId?: string | number,
   start: string,
   end?: string
+}
+
+export interface Tag {
+  id: number,
+  name: string
+}
+
+export interface Report {
+  Reason: string,
+  Description: string
 }

@@ -4,6 +4,8 @@ import {TuiDialogService} from "@taiga-ui/core";
 import {PolymorpheusComponent} from "@tinkoff/ng-polymorpheus";
 import {Observable} from "rxjs";
 import {ModalFilterComponent} from "../modal-windows/modal-filter/modal-filter.component";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-navigation',
@@ -26,6 +28,13 @@ export class NavigationComponent implements OnInit {
     this.deviceService.search.next('')
   }
 
+  logout() {
+    this.auth.logout().subscribe(
+      () => this.router.navigate(['/login']),
+      error => {console.warn(error)}
+    )
+  }
+
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.deviceService.search.next(this.searchTerm);
@@ -33,7 +42,9 @@ export class NavigationComponent implements OnInit {
 
   constructor(private deviceService: DeviceService,
               @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
-              @Inject(Injector) private readonly injector: Injector) { }
+              @Inject(Injector) private readonly injector: Injector,
+              private router: Router,
+              private auth: AuthService,) { }
 
   dialogFilter: Observable<number>
   ngOnInit(): void {
