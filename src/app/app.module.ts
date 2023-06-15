@@ -31,7 +31,7 @@ import {
   TuiInputPasswordModule,
   TuiDataListWrapperModule,
   TuiSelectModule,
-  TuiCheckboxLabeledModule, TuiAccordionModule, TuiMarkerIconModule,
+  TuiCheckboxLabeledModule, TuiAccordionModule, TuiMarkerIconModule, TuiRoutableDialogModule, tuiGenerateDialogableRoute
 } from '@taiga-ui/kit';
 import {TuiActiveZoneModule, TuiLetModule} from '@taiga-ui/cdk';
 import {TuiMobileCalendarModule} from '@taiga-ui/addon-mobile';
@@ -85,6 +85,8 @@ import {TuiMoneyModule} from "@taiga-ui/addon-commerce";
 import {ModalCalendarComponent} from './components/modal-windows/modal-calendar/modal-calendar.component';
 import {CalendarPageComponent} from './pages/calendar-page/calendar-page.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { RoutableDialogComponent } from './components/modal-windows/routable-dialog/routable-dialog.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -120,7 +122,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     HomeLayoutComponent,
     ModalFilterComponent,
     ModalCalendarComponent,
-    CalendarPageComponent
+    CalendarPageComponent,
+    RoutableDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -170,7 +173,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
       useFactory: adapterFactory,
     }),
     FontAwesomeModule,
-    TuiMobileCalendarModule
+    TuiMobileCalendarModule,
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}, ListDevicesPageComponent],
   bootstrap: [AppComponent]

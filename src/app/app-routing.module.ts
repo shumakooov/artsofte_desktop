@@ -9,6 +9,9 @@ import {EditProfilePageComponent} from "./pages/edit-profile-page/edit-profile-p
 import {LoginLayoutComponent} from "./layouts/login-layout/login-layout.component";
 import {HomeLayoutComponent} from "./layouts/home-layout/home-layout.component";
 import {CalendarPageComponent} from "./pages/calendar-page/calendar-page.component";
+import {RoutableDialogComponent} from "./components/modal-windows/routable-dialog/routable-dialog.component";
+import {ModalDeviceCardComponent} from "./components/modal-windows/modal-device-card/modal-device-card.component";
+import {tuiGenerateDialogableRoute} from "@taiga-ui/kit";
 
 const routes: Routes = [
   {
@@ -19,7 +22,10 @@ const routes: Routes = [
   },
   {
     path: '', component: HomeLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
-      {path: 'devices', component: ListDevicesPageComponent},
+      {path: 'devices', component: ListDevicesPageComponent, children: [
+          // {path: 'device', component: RoutableDialogComponent, data: {dialog: ModalDeviceCardComponent, backUrl: '../'}}
+          tuiGenerateDialogableRoute(ModalDeviceCardComponent, {path: 'device'})
+        ]},
       {path: 'booked', component: BookedDevicesPageComponent},
       {path: 'profile', component: ProfilePageComponent},
       {path: 'profile/edit', component: EditProfilePageComponent},

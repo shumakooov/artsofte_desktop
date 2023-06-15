@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
-  Injector,
+  Injector, OnDestroy,
   OnInit,
   TemplateRef
 } from '@angular/core';
@@ -16,6 +16,7 @@ import {Observable, Subscription} from "rxjs";
 import {Device, RecordsHistory, Tag} from "../../../interfaces";
 import {DeviceService} from "../../../services/device.service";
 import {environment} from "../../../../environments/environment";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-modal-device-card',
@@ -23,7 +24,7 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./modal-device-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
+export class ModalDeviceCardComponent implements OnInit, AfterContentInit {
   API_URL = environment.API_URL
   get data(): number {
     return this.context.data;
@@ -32,7 +33,9 @@ export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
               @Inject(POLYMORPHEUS_CONTEXT) private readonly context: TuiDialogContext<number, number>,
               @Inject(Injector) private readonly injector: Injector,
-              private deviceService: DeviceService) { }
+              private deviceService: DeviceService,
+              private router : Router,
+              private route: ActivatedRoute) { }
 
   showUsageHistory(content: TemplateRef<TuiDialogContext<void>>): void {
     this.dialogService.open(content, {dismissible: true, size: "auto"}).subscribe();
@@ -43,7 +46,7 @@ export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
   this.dialogBookingCard = this.dialogService.open<number>(
       new PolymorpheusComponent(ModalBookingCardComponent, this.injector),
       {
-        data: this.data,
+        data: this.id,
         size: "auto"
       }
     );
@@ -56,12 +59,19 @@ export class ModalDeviceCardComponent implements OnInit, AfterContentInit{
   device$: Observable<Device>
   usageHistory$: Observable<RecordsHistory[]>
   tags = ['#']
+  id: number
 
   ngOnInit(): void {
-    this.deviceService.getDeviceTags(this.data).subscribe(x => x.forEach(tag => this.tags.push(tag.name)))
-    this.device$ = this.deviceService.getDevicesFullById(this.data)
-    this.usageHistory$ = this.deviceService.getUsageHistoryById(this.data)
+    this.route.queryParams
+      .subscribe(params => {
+          this.id = params['id'];
+        }
+      );
 
+    this.deviceService.getDeviceTags(this.id).subscribe(x => x.forEach(tag => this.tags.push(tag.name)))
+    this.device$ = this.deviceService.getDevicesFullById(this.id)
+    this.usageHistory$ = this.deviceService.getUsageHistoryById(this.id)
   }
+
   readonly control = new FormControl([]);
 }

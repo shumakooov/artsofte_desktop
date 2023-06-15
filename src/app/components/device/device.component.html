@@ -1,5 +1,5 @@
 <div class="item">
-  <div class="showBooking" (click)="showDeviceCard()">
+  <div class="showBooking" routerLink="device" [queryParams]="{id: id}">
     <img [src]="API_URL + imgUrl"
          class="item_img"
          />

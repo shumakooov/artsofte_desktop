@@ -5,6 +5,7 @@ import {ModalDeviceCardComponent} from "../modal-windows/modal-device-card/modal
 import {Observable} from "rxjs";
 import {ModalBookingCardComponent} from "../modal-windows/modal-booking-card/modal-booking-card.component";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-device',
@@ -24,7 +25,8 @@ export class DeviceComponent implements AfterContentInit {
   mediaQuery: any = window.matchMedia("(max-width:480px)")
 
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
-              @Inject(Injector) private readonly injector: Injector) {
+              @Inject(Injector) private readonly injector: Injector,
+              private router: Router) {
   }
 
   dialogBookingCard: Observable<number>
